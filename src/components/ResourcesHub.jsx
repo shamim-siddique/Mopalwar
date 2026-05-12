@@ -6,6 +6,7 @@ const resourceCategories = [
   { id: 'all', label: 'All Resources' },
   { id: 'policy', label: 'Policy & Legal' },
   { id: 'infrastructure', label: 'Infrastructure' },
+  { id: 'strategy', label: 'Strategy & Execution' },
   { id: 'corporate', label: 'Corporate' },
   { id: 'technical', label: 'Technical Reports' }
 ]
@@ -13,51 +14,63 @@ const resourceCategories = [
 const resources = [
   {
     id: 1,
-    title: 'Samruddhi Mahamarg: A Case Study in Greenfield Development',
-    category: 'infrastructure',
-    type: 'Infrastructure',
-    size: '2.8 MB',
-    pages: '12 pages',
-    date: '2023',
-    summary: 'Technical whitepaper detailing engineering specs, design speed (150 kmph), and land acquisition model for the Mumbai-Nagpur Expressway.',
-    description: 'This case study from IJIRSET provides comprehensive technical documentation of the Samruddhi Mahamarg project, including engineering specifications, design parameters, and the innovative land acquisition model that enabled rapid project execution.',
-    pdfUrl: 'http://www.ijirset.com/upload/2023/may/419_Samruddhi_NC.pdf'
+    title: 'The Maharashtra Groundwater (Development and Management) Act',
+    category: 'policy',
+    type: 'Policy & Legal',
+    size: 'Official Act',
+    pages: 'Act 26 of 2013',
+    date: '2009',
+    summary: 'Official legal framework for state-wide groundwater governance, conservation, and sustainable use.',
+    description: 'India Code record for the Maharashtra Groundwater Act, marking a major policy framework for water resource governance and sustainability across the state.',
+    pdfUrl: 'https://mwrra.maharashtra.gov.in/wp-content/uploads/2022/08/6-Maharashtra-Groundwater-Development-Management-Act-2009.pdf'
   },
   {
     id: 2,
-    title: 'SEBI Regulation 30: Appointment of CMD',
-    category: 'corporate',
-    type: 'Corporate',
-    size: '1.2 MB',
-    pages: '8 pages',
-    date: '2024-2026',
-    summary: 'Legal disclosure confirming 2026 status as Chairman & Managing Director of Hazoor Multi Projects Ltd with strategic pipeline.',
-    description: 'Official Board & CMD disclosure document confirming Radheshyam Mopalwar\'s appointment as Chairman and Managing Director. Contains verified brief profile mentioning IT Department setup and Groundwater roles. Includes company strategic project pipeline.',
-    pdfUrl: 'https://hazoormultiproject.com/board-of-directors/'
+    title: 'Samruddhi Mahamarg: Lessons in Greenfield Development',
+    category: 'technical',
+    type: 'Technical Reports',
+    size: '2.8 MB',
+    pages: '12 pages',
+    date: '2023',
+    summary: 'Engineering whitepaper on the 701-km expressway, technical specifications, and greenfield development model.',
+    description: 'IJIRSET case study documenting the Samruddhi Mahamarg project, including engineering specifications, design parameters, and the land acquisition model that enabled rapid execution.',
+    pdfUrl: 'http://www.ijirset.com/upload/2023/may/419_Samruddhi_NC.pdf'
   },
   {
     id: 3,
-    title: 'MSRDC Consolidated Financials & Project Progress',
-    category: 'corporate',
-    type: 'Corporate',
-    size: '4.5 MB',
-    pages: '85 pages',
-    date: '2018-2026',
-    summary: 'Official auditing and progress reports providing financial benchmarks for ₹1.2 Lakh Cr+ projects.',
-    description: 'Detailed financial statements and audit reports covering MSRDC operations. Includes project-wise expenditure analysis, revenue generation, toll data, and fiscal performance metrics. Provides financial and operational benchmarks for infrastructure delivery.',
-    pdfUrl: 'https://msrdc.in/site/upload/pdf/ConsolidatedFinacialsMSRDC2018.pdf'
+    title: 'Infrastructure Project Execution & Fast-Tracking Framework',
+    category: 'strategy',
+    type: 'Strategy & Execution',
+    size: 'BSE filing',
+    pages: 'Profile archive',
+    date: '2025',
+    summary: 'Public governance archive verifying War Room leadership and fast-tracking of major infrastructure projects.',
+    description: 'BSE-hosted professional profile confirming Radheshyam Mopalwar as former VC & MD of MSRDC and Director General of the Infrastructure War Room in the CMO of Maharashtra.',
+    pdfUrl: 'https://bsmedia.business-standard.com/_media/bs/data/announcements/bse/05022025/2ac9c8fa-861f-4a01-9ce6-8fe7eee44365.pdf'
   },
   {
     id: 4,
-    title: 'Balanced Regional Development Issues in Maharashtra',
-    category: 'policy',
-    type: 'Policy & Legal',
-    size: '3.1 MB',
-    pages: '42 pages',
-    date: '2026',
-    summary: 'Committee report citing institutional reforms and infrastructure focus areas managed during his tenure.',
-    description: 'High-level committee report (Pages 5-10) discussing institutional reforms and infrastructure focus areas in Maharashtra. References the legacy of the Draft Groundwater Legislation and its impact on sustainable water resource governance frameworks.',
-    pdfUrl: '#'
+    title: 'Hazoor Multi Projects 2026 Strategic Outlook & Financial Report',
+    category: 'corporate',
+    type: 'Corporate',
+    size: 'Financial PDF',
+    pages: 'Quarterly result',
+    date: '2025-2026',
+    summary: 'Official corporate financial disclosure for the 2025-2026 reporting cycle and current leadership context.',
+    description: 'Hazoor Multi Projects financial-result disclosure for the 2026 reporting period, supporting the company\'s current corporate status and financial growth narrative.',
+    pdfUrl: 'https://hazoormultiproject.com/wp-content/uploads/2026/04/31-12-2025-2.pdf'
+  },
+  {
+    id: 5,
+    title: 'MSRDC Consolidated Financials & Project Progress',
+    category: 'infrastructure',
+    type: 'Infrastructure',
+    size: '4.5 MB',
+    pages: 'Annual accounts',
+    date: '2019',
+    summary: 'Official MSRDC consolidated financial archive covering infrastructure finance and project-progress benchmarks.',
+    description: 'MSRDC annual report and bond archive containing consolidated financial statements tied to the infrastructure project portfolio overseen during the VC & MD tenure.',
+    pdfUrl: 'https://msrdc.in/site/upload/pdf/MSRDC-CONSOLIDATED-31032019.pdf'
   }
 ]
 
@@ -68,8 +81,8 @@ const ResourcesHub = () => {
     ? resources
     : resources.filter(r => r.category === activeCategory)
 
-  const handleDownload = (pdfUrl, title) => {
-    window.open(pdfUrl, '_blank')
+  const handleDownload = (pdfUrl) => {
+    window.open(pdfUrl, '_blank', 'noopener,noreferrer')
   }
 
   return (
@@ -143,13 +156,13 @@ const ResourcesHub = () => {
                 {/* Meta Info */}
                 <div className="flex items-center gap-4 text-sm text-gray-500 mb-4 pb-4 border-b border-cream-200">
                   <span>{resource.pages}</span>
-                  <span>•</span>
+                  <span>-</span>
                   <span>{resource.date}</span>
                 </div>
 
                 {/* Download Button */}
                 <button
-                  onClick={() => handleDownload(resource.pdfUrl, resource.title)}
+                  onClick={() => handleDownload(resource.pdfUrl)}
                   className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-gold-500 text-navy-900 font-semibold rounded-lg hover:bg-gold-400 transition-all duration-300"
                 >
                   <Download className="w-4 h-4" />
@@ -160,7 +173,6 @@ const ResourcesHub = () => {
           ))}
         </AnimatePresence>
       </div>
-
     </div>
   )
 }

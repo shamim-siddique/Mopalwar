@@ -1,12 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Play, ExternalLink, Quote, Newspaper, Video, Calendar, ArrowRight, Shield, BookOpen } from 'lucide-react'
-
-const mediaOutlets = [
-  { name: 'Zee News', logo: 'ZN', color: '#C5A059' },
-  { name: 'DNA', logo: 'DNA', color: '#C5A059' },
-  { name: 'Construction World', logo: 'CW', color: '#C5A059' }
-]
+import { Play, ExternalLink, Quote, Newspaper, Video, Calendar, Shield, BookOpen } from 'lucide-react'
 
 const pressArticles = [
   {
@@ -151,7 +145,7 @@ const PressMedia = () => {
                 href={article.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block h-full bg-cream-50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-[#C5A059]"
+                className="flex h-full flex-col bg-cream-50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-[#C5A059]"
               >
                 {/* Card Header with Outlet Badge */}
                 <div className="p-6 pb-0">
@@ -174,7 +168,7 @@ const PressMedia = () => {
                 </div>
 
                 {/* Card Content */}
-                <div className="p-6 pt-4">
+                <div className="flex flex-1 flex-col p-6 pt-4">
                   <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
                     <span className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
@@ -206,16 +200,18 @@ const PressMedia = () => {
                   )}
 
                   {/* Read Full Feature Button */}
-                  <div className="flex items-center gap-2 px-4 py-2 bg-gold-500 text-navy-900 font-semibold rounded-lg group-hover:bg-gold-400 transition-all duration-300 w-fit">
-                    <span>Read Full Feature</span>
-                    <ExternalLink className="w-4 h-4" />
-                  </div>
+                  <div className="mt-auto">
+                    <div className="flex items-center gap-2 px-4 py-2 bg-gold-500 text-navy-900 font-semibold rounded-lg group-hover:bg-gold-400 transition-all duration-300 w-fit">
+                      <span>Read Full Feature</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </div>
 
-                  {/* Source Footer */}
-                  <div className="mt-4 pt-3 border-t border-cream-200">
-                    <p className="text-xs text-gray-500">
-                      Source: {article.source}
-                    </p>
+                    {/* Source Footer */}
+                    <div className="mt-4 pt-3 border-t border-cream-200">
+                      <p className="text-xs text-gray-500">
+                        Source: {article.source}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </a>

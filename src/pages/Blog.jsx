@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import Container from '../components/Container'
 import SectionHeading from '../components/SectionHeading'
 import Card from '../components/Card'
-import { Calendar, Clock, ArrowRight, Tag } from 'lucide-react'
+import { Calendar, Clock, Tag } from 'lucide-react'
 import warRoomImage from '../assets/images/War Room.png'
 
 const Blog = () => {
@@ -59,17 +58,6 @@ const Blog = () => {
       category: 'Governance',
       excerpt: 'The e-tendering and e-monitoring systems we introduced at MSRDC reduced administrative delays by 40%. Here is how to build institutional capacity that endures beyond any single administrator.'
     },
-  ]
-
-  const categories = [
-    'All',
-    'Infrastructure',
-    'Governance',
-    'Technology',
-    'Leadership',
-    'Policy',
-    'Urban Development',
-    'Rural Development'
   ]
 
   return (
@@ -144,10 +132,6 @@ const Blog = () => {
                       </span>
                     ))}
                   </div>
-                  <button className="inline-flex items-center gap-2 text-gold-600 font-semibold hover:text-gold-500 transition-colors group">
-                    Read full article
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </button>
                 </div>
               </div>
             </Card>
@@ -186,15 +170,11 @@ const Blog = () => {
                   <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">
                     {post.excerpt}
                   </p>
-                  <div className="pt-4 border-t border-cream-200 flex items-center justify-between">
+                  <div className="pt-4 border-t border-cream-200 flex items-center">
                     <span className="flex items-center gap-1 text-gray-500 text-sm">
                       <Calendar size={14} />
                       {post.date}
                     </span>
-                    <button className="text-gold-600 text-sm font-medium hover:text-gold-500 transition-colors inline-flex items-center gap-1 group">
-                      Read
-                      <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                    </button>
                   </div>
                 </Card>
               </motion.article>

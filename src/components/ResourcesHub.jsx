@@ -89,83 +89,80 @@ const ResourcesHub = () => {
     <div className="space-y-8">
       {/* Category Labels */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="flex flex-wrap items-center gap-2 text-sm"
+        className="flex flex-wrap items-center gap-2"
       >
-        <span className="text-gray-500 font-medium">Categories:</span>
-        {resourceCategories.map((category, index) => (
+        <span className="text-gray-400 text-xs font-medium">Filter:</span>
+        {resourceCategories.map((category) => (
           <button
             key={category.id}
             onClick={() => setActiveCategory(category.id)}
-            className={`transition-all duration-300 ${
+            className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 ${
               activeCategory === category.id
-                ? 'text-gold-600 font-semibold'
-                : 'text-gray-700 hover:text-gold-600'
+                ? 'bg-gold-500/10 text-gold-700 border border-gold-500/20'
+                : 'text-gray-500 hover:text-gold-600 border border-transparent hover:border-cream-200/60'
             }`}
           >
             {category.label}
-            {index < resourceCategories.length - 1 && (
-              <span className="text-gray-400 mx-2">|</span>
-            )}
           </button>
         ))}
       </motion.div>
 
       {/* Resources Grid */}
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-4 lg:gap-5">
         <AnimatePresence mode="wait">
           {filteredResources.map((resource, index) => (
             <motion.div
               key={resource.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="group h-full bg-cream-50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-cream-200 hover:border-gold-500/30"
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.35, delay: index * 0.06 }}
+              className="group h-full bg-cream-50 rounded-2xl overflow-hidden border border-cream-200/60 shadow-sm hover:shadow-lg hover:shadow-gold-500/5 hover:border-gold-500/20 transition-all duration-300"
             >
               {/* Card Content */}
-              <div className="p-6">
+              <div className="p-5">
                 {/* Type & Size */}
-                <div className="flex items-center justify-between mb-4">
-                  <span className="inline-block px-3 py-1 bg-gold-500/10 text-gold-600 text-xs font-medium rounded-full">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="inline-block px-2.5 py-0.5 bg-gold-500/8 text-gold-600 text-[10px] font-semibold rounded-full uppercase tracking-wide">
                     {resource.type}
                   </span>
-                  <div className="flex items-center gap-2 text-sm text-gray-500">
-                    <FileText className="w-4 h-4" />
+                  <div className="flex items-center gap-1.5 text-xs text-gray-400">
+                    <FileText size={14} />
                     <span>{resource.size}</span>
                   </div>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-semibold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors line-clamp-2">
+                <h3 className="text-base font-semibold text-navy-900 mb-1.5 group-hover:text-gold-600 transition-colors line-clamp-2 leading-snug">
                   {resource.title}
                 </h3>
 
                 {/* Summary */}
-                <p className="text-gold-600 text-sm font-medium mb-3">
+                <p className="text-gold-600 text-xs font-medium mb-2">
                   {resource.summary}
                 </p>
 
                 {/* Description */}
-                <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4">
+                <p className="text-gray-500 text-xs leading-relaxed line-clamp-3 mb-3">
                   {resource.description}
                 </p>
 
                 {/* Meta Info */}
-                <div className="flex items-center gap-4 text-sm text-gray-500 mb-4 pb-4 border-b border-cream-200">
+                <div className="flex items-center gap-2 text-xs text-gray-400 mb-3 pb-3 border-b border-cream-200/60">
                   <span>{resource.pages}</span>
-                  <span>-</span>
+                  <span>·</span>
                   <span>{resource.date}</span>
                 </div>
 
                 {/* Download Button */}
                 <button
                   onClick={() => handleDownload(resource.pdfUrl)}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-gold-500 text-navy-900 font-semibold rounded-lg hover:bg-gold-400 transition-all duration-300"
+                  className="w-full flex items-center justify-center gap-1.5 px-4 py-2 bg-gradient-to-r from-gold-500 to-gold-400 text-navy-900 text-xs font-semibold rounded-xl hover:shadow-md hover:shadow-gold-500/15 transition-all duration-300"
                 >
-                  <Download className="w-4 h-4" />
+                  <Download size={14} />
                   <span>Download PDF</span>
                 </button>
               </div>

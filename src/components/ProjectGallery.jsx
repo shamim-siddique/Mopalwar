@@ -107,15 +107,15 @@ const ProjectGallery = () => {
   return (
     <div className="relative">
       {/* Bento Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[200px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4 auto-rows-[180px] sm:auto-rows-[200px]">
         {projectData.map((project, index) => (
           <motion.div
             key={project.id}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className={`relative group cursor-pointer overflow-hidden rounded-xl ${getGridClass(project.size)}`}
+            transition={{ duration: 0.5, delay: index * 0.06 }}
+            className={`relative group cursor-pointer overflow-hidden rounded-2xl ${getGridClass(project.size)}`}
             onMouseEnter={() => setHoveredId(project.id)}
             onMouseLeave={() => setHoveredId(null)}
             onClick={() => setSelectedProject(project)}
@@ -128,33 +128,34 @@ const ProjectGallery = () => {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               {/* Light overlay for text readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-900/70 via-navy-900/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-900/75 via-navy-900/25 to-transparent" />
             </div>
 
             {/* Content Overlay */}
-            <div className="absolute inset-0 p-6 flex flex-col justify-between text-white">
+            <div className="absolute inset-0 p-4 sm:p-5 flex flex-col justify-between text-white">
               {/* Top: Category */}
               <div className="flex justify-between items-start">
-                <span className="inline-block px-3 py-1 bg-gold-500/20 backdrop-blur-sm border border-gold-500/30 rounded-full text-xs font-medium">
+                <span className="inline-block px-2.5 py-0.5 bg-gold-500/15 backdrop-blur-sm border border-gold-500/25 rounded-full text-[10px] font-medium">
                   {project.category}
                 </span>
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: hoveredId === project.id ? 1 : 0, scale: hoveredId === project.id ? 1 : 0.8 }}
-                  className="w-10 h-10 rounded-full bg-gold-500 flex items-center justify-center"
+                  transition={{ duration: 0.2 }}
+                  className="w-8 h-8 rounded-full bg-gold-500 flex items-center justify-center"
                 >
-                  <ZoomIn className="w-5 h-5 text-navy-900" />
+                  <ZoomIn size={16} className="text-navy-900" />
                 </motion.div>
               </div>
 
               {/* Bottom: Title & Fast Fact */}
               <div>
-                <h3 className="text-xl md:text-2xl font-semibold mb-2">{project.title}</h3>
+                <h3 className="text-base sm:text-lg lg:text-xl font-semibold mb-1.5 leading-snug">{project.title}</h3>
                 
                 {/* Fast Fact - Always Visible */}
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-2 h-2 rounded-full bg-gold-500" />
-                  <span className="text-gold-400 font-medium text-sm">{project.fastFact}</span>
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-gold-500" />
+                  <span className="text-gold-400 font-medium text-xs">{project.fastFact}</span>
                 </div>
 
                 {/* Expanded Details on Hover */}
@@ -167,17 +168,17 @@ const ProjectGallery = () => {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <p className="text-white/80 text-sm mb-4 line-clamp-2">
+                  <p className="text-white/75 text-xs mb-3 line-clamp-2 leading-relaxed">
                     {project.details}
                   </p>
                   
                   {/* Metrics */}
-                  <div className="flex gap-4">
+                  <div className="flex flex-wrap gap-3">
                     {project.metrics.map((metric, i) => (
-                      <div key={i} className="flex items-center gap-2">
-                        <metric.icon className="w-4 h-4 text-gold-500" />
-                        <span className="text-sm">
-                          <strong>{metric.value}</strong> {metric.label}
+                      <div key={i} className="flex items-center gap-1.5">
+                        <metric.icon size={12} className="text-gold-500" />
+                        <span className="text-xs">
+                          <strong>{metric.value}</strong> <span className="text-white/60">{metric.label}</span>
                         </span>
                       </div>
                     ))}
@@ -188,7 +189,7 @@ const ProjectGallery = () => {
 
             {/* Hover Border Effect */}
             <motion.div
-              className="absolute inset-0 rounded-xl border-2 border-gold-500 pointer-events-none"
+              className="absolute inset-0 rounded-2xl border-2 border-gold-500/50 pointer-events-none"
               initial={{ opacity: 0 }}
               animate={{ opacity: hoveredId === project.id ? 1 : 0 }}
               transition={{ duration: 0.2 }}
@@ -208,58 +209,61 @@ const ProjectGallery = () => {
             onClick={() => setSelectedProject(null)}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.92, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="relative max-w-4xl w-full bg-cream-50 rounded-2xl overflow-hidden"
+              exit={{ scale: 0.92, opacity: 0 }}
+              transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="relative max-w-3xl w-full bg-cream-50 rounded-2xl overflow-hidden shadow-2xl border border-cream-200/60"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition-colors"
+                className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/95 flex items-center justify-center hover:bg-white transition-colors shadow-md"
               >
-                <X className="w-5 h-5 text-navy-900" />
+                <X size={16} className="text-navy-900" />
               </button>
 
               {/* Modal Content */}
               <div className="grid md:grid-cols-2">
                 {/* Image Side */}
-                <div
-                  className="h-64 md:h-auto bg-cream-200 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${selectedProject.image})` }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent md:bg-gradient-to-r" />
+                <div className="h-52 md:h-auto min-h-[200px] bg-cream-200 relative">
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900/50 to-transparent md:bg-gradient-to-r md:from-transparent md:to-navy-900/10" />
                 </div>
 
                 {/* Content Side */}
-                <div className="p-8">
-                  <span className="inline-block px-3 py-1 bg-gold-500/10 text-gold-600 text-xs font-medium rounded-full mb-4">
+                <div className="p-5 sm:p-6">
+                  <span className="inline-block px-2.5 py-0.5 bg-gold-500/8 text-gold-600 text-[10px] font-semibold rounded-full mb-3 uppercase tracking-wide">
                     {selectedProject.category}
                   </span>
-                  <h3 className="text-2xl md:text-3xl font-semibold text-navy-900 mb-4">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-navy-900 mb-3 leading-snug">
                     {selectedProject.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">
+                  <p className="text-gray-500 text-sm leading-relaxed mb-4">
                     {selectedProject.details}
                   </p>
 
                   {/* Fast Fact Highlight */}
-                  <div className="bg-navy-900 text-white p-4 rounded-lg mb-6">
-                    <p className="text-sm text-gold-400 mb-1">Fast Fact</p>
-                    <p className="text-xl font-semibold">{selectedProject.fastFact}</p>
+                  <div className="bg-navy-900 text-white p-3 rounded-xl mb-4">
+                    <p className="text-[10px] text-gold-400 mb-0.5 uppercase tracking-wide">Fast Fact</p>
+                    <p className="text-base font-semibold">{selectedProject.fastFact}</p>
                   </div>
 
                   {/* Metrics Grid */}
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-2.5">
                     {selectedProject.metrics.map((metric, i) => (
-                      <div key={i} className="flex items-center gap-3 p-3 bg-cream-100 rounded-lg">
-                        <div className="w-10 h-10 rounded-lg bg-gold-500/10 flex items-center justify-center">
-                          <metric.icon className="w-5 h-5 text-gold-500" />
+                      <div key={i} className="flex items-center gap-2.5 p-2.5 bg-cream-100 rounded-xl border border-cream-200/60">
+                        <div className="w-8 h-8 rounded-lg bg-gold-500/8 flex items-center justify-center flex-shrink-0">
+                          <metric.icon size={16} className="text-gold-500" />
                         </div>
                         <div>
-                          <p className="text-lg font-bold text-navy-900">{metric.value}</p>
-                          <p className="text-xs text-gray-600">{metric.label}</p>
+                          <p className="text-sm font-bold text-navy-900">{metric.value}</p>
+                          <p className="text-[10px] text-gray-500">{metric.label}</p>
                         </div>
                       </div>
                     ))}

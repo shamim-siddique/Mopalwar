@@ -87,30 +87,30 @@ const CareerTimeline = () => {
   return (
     <div className="relative py-12">
       {/* Service Phase Legend - 2x2 Grid */}
-      <div className="grid grid-cols-2 gap-x-16 gap-y-3 mb-12 text-sm max-w-2xl mx-auto">
-        <div className="flex items-center gap-2 justify-end">
-          <div className="w-3 h-3 rounded-full bg-[#C5A059]" />
-          <span className="text-gray-600">State Service (1982-1995)</span>
+      <div className="grid grid-cols-2 gap-x-8 gap-y-2 mb-10 text-xs max-w-xl mx-auto">
+        <div className="flex items-center gap-1.5 justify-end">
+          <div className="w-2.5 h-2.5 rounded-full bg-[#C5A059]" />
+          <span className="text-gray-500">State Service (1982-1995)</span>
         </div>
-        <div className="flex items-center gap-2 justify-start">
-          <div className="w-3 h-3 rounded-full bg-[#001f3f]" />
-          <span className="text-gray-600">IAS Career (1995-2018)</span>
+        <div className="flex items-center gap-1.5 justify-start">
+          <div className="w-2.5 h-2.5 rounded-full bg-[#1a2332]" />
+          <span className="text-gray-500">IAS Career (1995-2018)</span>
         </div>
-        <div className="flex items-center gap-2 justify-end">
-          <div className="w-3 h-3 rounded-full bg-[#001f3f]" />
-          <span className="text-gray-600">Extensions & War Room (2018-2023)</span>
+        <div className="flex items-center gap-1.5 justify-end">
+          <div className="w-2.5 h-2.5 rounded-full bg-[#1a2332]" />
+          <span className="text-gray-500">Extensions & War Room (2018-2023)</span>
         </div>
-        <div className="flex items-center gap-2 justify-start">
-          <div className="w-3 h-3 rounded-full bg-[#C5A059]" />
-          <span className="text-gray-600">Corporate (2024-Present)</span>
+        <div className="flex items-center gap-1.5 justify-start">
+          <div className="w-2.5 h-2.5 rounded-full bg-[#C5A059]" />
+          <span className="text-gray-500">Corporate (2024-Present)</span>
         </div>
       </div>
 
       {/* Progress Line Container */}
-      <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-cream-200 md:-translate-x-1/2">
+      <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-cream-200 md:-translate-x-1/2">
         {/* Animated Progress Fill */}
         <motion.div
-          className="absolute top-0 left-0 w-full bg-linear-to-b from-gold-500 to-gold-400"
+          className="absolute top-0 left-0 w-full bg-gradient-to-b from-gold-500 to-gold-400"
           initial={{ height: '0%' }}
           whileInView={{ height: '100%' }}
           viewport={{ once: true }}
@@ -119,7 +119,7 @@ const CareerTimeline = () => {
       </div>
 
       {/* Timeline Items - Enhanced Zigzag */}
-      <div className="space-y-16 md:space-y-24">
+      <div className="space-y-10 md:space-y-14">
         {careerData.map((item, index) => {
           const isLeft = index % 2 === 0
           const special = isSpecialYear(item.year)
@@ -129,31 +129,29 @@ const CareerTimeline = () => {
               key={item.year}
               initial={{ 
                 opacity: 0, 
-                x: isLeft ? -80 : 80,
-                scale: 0.9
+                x: isLeft ? -40 : 40,
               }}
               whileInView={{ 
                 opacity: 1, 
                 x: 0,
-                scale: 1
               }}
-              viewport={{ once: true, margin: '-100px' }}
+              viewport={{ once: true, margin: '-80px' }}
               transition={{ 
-                duration: 0.7, 
-                delay: index * 0.12, 
+                duration: 0.6, 
+                delay: index * 0.08, 
                 ease: [0.25, 0.46, 0.45, 0.94]
               }}
-              className={`relative flex flex-col md:flex-row items-center gap-6 md:gap-0 ${
+              className={`relative flex flex-col md:flex-row items-center gap-4 md:gap-0 ${
                 isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
               }`}
             >
               {/* Timeline Node with Animation */}
               <motion.div 
-                className="absolute left-8 md:left-1/2 z-20 md:-translate-x-1/2"
+                className="absolute left-6 md:left-1/2 z-20 md:-translate-x-1/2"
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.12 + 0.3, type: "spring", stiffness: 200 }}
+                transition={{ delay: index * 0.08 + 0.2, type: "spring", stiffness: 200 }}
               >
                 {/* Pulse Effect for Key Milestones */}
                 {item.pulse && (
@@ -162,7 +160,7 @@ const CareerTimeline = () => {
                     style={{ backgroundColor: item.color }}
                     animate={{
                       scale: [1, 2, 1],
-                      opacity: [0.5, 0, 0.5]
+                      opacity: [0.4, 0, 0.4]
                     }}
                     transition={{
                       duration: 2,
@@ -172,15 +170,15 @@ const CareerTimeline = () => {
                   />
                 )}
                 <div
-                  className={`rounded-full border-4 border-white shadow-lg relative ${
-                    special ? 'w-6 h-6' : 'w-4 h-4'
+                  className={`rounded-full border-[3px] border-white shadow-md relative ${
+                    special ? 'w-5 h-5' : 'w-3.5 h-3.5'
                   } ${item.pulse ? 'animate-pulse' : ''}`}
                   style={{ backgroundColor: item.color }}
                 >
                   {/* Special Year Ring */}
                   {special && (
                     <motion.div
-                      className="absolute inset-0 rounded-full border-2 border-dashed"
+                      className="absolute inset-0 rounded-full border border-dashed"
                       style={{ borderColor: item.color }}
                       animate={{ rotate: 360 }}
                       transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
@@ -188,8 +186,8 @@ const CareerTimeline = () => {
                   )}
                   {/* Extension Badge */}
                   {item.type === 'flagship' && (
-                    <div className="absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap">
-                      <span className="px-3 py-1 bg-red-500 text-white text-xs font-bold rounded-full shadow-lg">
+                    <div className="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap">
+                      <span className="px-2 py-0.5 bg-red-500 text-white text-[10px] font-bold rounded-full shadow-md">
                         7 Extensions
                       </span>
                     </div>
@@ -198,29 +196,24 @@ const CareerTimeline = () => {
               </motion.div>
 
               {/* Year Badge Side */}
-              <div className={`pl-20 md:pl-0 md:w-1/2 ${isLeft ? 'md:pr-16 md:text-right' : 'md:pl-16 md:text-left'}`}>
+              <div className={`pl-14 md:pl-0 md:w-1/2 ${isLeft ? 'md:pr-10 md:text-right' : 'md:pl-10 md:text-left'}`}>
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.12 + 0.2 }}
+                  transition={{ delay: index * 0.08 + 0.15 }}
                 >
-                  <motion.span
-                    className={`inline-block px-5 py-2 font-bold rounded-xl text-white shadow-xl ${
-                      special ? 'text-xl' : 'text-lg'
+                  <span
+                    className={`inline-block px-4 py-1.5 font-bold rounded-lg text-white shadow-lg ${
+                      special ? 'text-base' : 'text-sm'
                     }`}
                     style={{ 
                       backgroundColor: item.color,
-                      boxShadow: special ? `0 10px 30px ${item.color}40` : undefined
-                    }}
-                    whileHover={{ 
-                      scale: 1.1, 
-                      rotate: special ? [0, -5, 5, 0] : 0,
-                      transition: { duration: 0.3 }
+                      boxShadow: special ? `0 6px 20px ${item.color}40` : undefined
                     }}
                   >
                     {item.year}
-                  </motion.span>
+                  </span>
                   
                   {/* Special Year Label */}
                   {special && (
@@ -228,8 +221,8 @@ const CareerTimeline = () => {
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ delay: index * 0.12 + 0.4 }}
-                      className="mt-2 inline-block px-3 py-1 bg-gold-500/10 text-gold-600 text-xs font-semibold rounded-full"
+                      transition={{ delay: index * 0.08 + 0.3 }}
+                      className="mt-1.5 inline-block px-2.5 py-0.5 bg-gold-500/8 text-gold-600 text-[10px] font-semibold rounded-full"
                     >
                       {item.year === '1995' && 'IAS Entry Milestone'}
                       {item.year === '2000-2003' && 'IT Pioneer Era'}
@@ -240,53 +233,44 @@ const CareerTimeline = () => {
               </div>
 
               {/* Content Card Side */}
-              <div className={`pl-20 md:pl-0 md:w-1/2 ${isLeft ? 'md:pl-16' : 'md:pr-16'}`}>
+              <div className={`pl-14 md:pl-0 md:w-1/2 ${isLeft ? 'md:pl-10' : 'md:pr-10'}`}>
                 <motion.div
-                  className={`bg-white rounded-2xl p-6 shadow-lg border-2 cursor-pointer transition-all duration-300 hover:shadow-2xl ${
-                    special ? 'border-gold-400' : 'border-cream-200'
+                  className={`bg-white rounded-2xl p-4 sm:p-5 shadow-md border cursor-pointer transition-all duration-300 hover:shadow-lg ${
+                    special ? 'border-gold-400/50' : 'border-cream-200/60'
                   }`}
                   onMouseEnter={() => setActiveIndex(index)}
                   onMouseLeave={() => setActiveIndex(null)}
                   onClick={() => setExpandedId(expandedId === index ? null : index)}
                   whileHover={{ 
-                    y: -8, 
-                    scale: 1.02,
+                    y: -4, 
                     transition: { duration: 0.2 }
-                  }}
-                  animate={{
-                    borderColor: activeIndex === index ? item.color : special ? '#d4b76a' : '#ebe7de'
                   }}
                 >
                   {/* Card Header */}
-                  <div className="flex items-start gap-4 mb-4">
-                    <motion.div
-                      className={`rounded-xl flex items-center justify-center shrink-0 ${
-                        special ? 'w-14 h-14' : 'w-12 h-12'
+                  <div className="flex items-start gap-3 mb-3">
+                    <div
+                      className={`rounded-lg flex items-center justify-center shrink-0 ${
+                        special ? 'w-11 h-11' : 'w-9 h-9'
                       }`}
-                      style={{ backgroundColor: `${item.color}15` }}
-                      whileHover={{ rotate: 10, scale: 1.1 }}
+                      style={{ backgroundColor: `${item.color}12` }}
                     >
-                      <item.icon className={special ? 'w-7 h-7' : 'w-6 h-6'} style={{ color: item.color }} />
-                    </motion.div>
-                    <div className="flex-1">
-                      <h3 className={`font-semibold text-navy-900 ${special ? 'text-xl' : 'text-lg'}`}>
+                      <item.icon className={special ? 'w-5 h-5' : 'w-4 h-4'} style={{ color: item.color }} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className={`font-semibold text-navy-900 leading-snug ${special ? 'text-base' : 'text-sm'}`}>
                         {item.title}
                       </h3>
-                      <p className="text-gold-600 font-medium text-sm">{item.role}</p>
+                      <p className="text-gold-600 text-xs font-medium">{item.role}</p>
                     </div>
                     {special && (
-                      <motion.div
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        className="w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center"
-                      >
-                        <span className="text-navy-900 text-xs font-bold">★</span>
-                      </motion.div>
+                      <div className="w-6 h-6 bg-gold-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span className="text-navy-900 text-[10px] font-bold">★</span>
+                      </div>
                     )}
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-600 leading-relaxed mb-4">
+                  <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-3">
                     {item.description}
                   </p>
 
@@ -297,33 +281,30 @@ const CareerTimeline = () => {
                       height: (activeIndex === index || expandedId === index) ? 'auto' : 0,
                       opacity: (activeIndex === index || expandedId === index) ? 1 : 0
                     }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    transition={{ duration: 0.25, ease: 'easeInOut' }}
                     className="overflow-hidden"
                   >
-                    <div className="pt-4 border-t border-cream-200">
-                      <h4 className="text-sm font-semibold text-navy-900 mb-3 flex items-center gap-2">
-                        <Award className="w-4 h-4 text-gold-500" />
+                    <div className="pt-3 border-t border-cream-200/60">
+                      <h4 className="text-xs font-semibold text-navy-900 mb-2 flex items-center gap-1.5">
+                        <Award size={12} className="text-gold-500" />
                         Key Achievements
                       </h4>
-                      <ul className="space-y-2">
+                      <ul className="space-y-1.5">
                         {item.achievements.map((achievement, i) => (
-                          <motion.li 
+                          <li 
                             key={i} 
-                            className="flex items-start gap-2 text-sm text-gray-600"
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: i * 0.1 }}
+                            className="flex items-start gap-2 text-xs text-gray-500 leading-relaxed"
                           >
-                            <span className="w-1.5 h-1.5 rounded-full bg-gold-500 mt-2 shrink-0" />
+                            <span className="w-1 h-1 rounded-full bg-gold-500 mt-1.5 shrink-0" />
                             {achievement}
-                          </motion.li>
+                          </li>
                         ))}
                       </ul>
                     </div>
                   </motion.div>
 
                   {/* Hint */}
-                  <div className="mt-3 text-xs text-gray-400 flex items-center gap-1">
+                  <div className="mt-2 text-[10px] text-gray-400 flex items-center gap-1">
                     <span>Click or hover for details</span>
                   </div>
                 </motion.div>
@@ -335,11 +316,11 @@ const CareerTimeline = () => {
 
       {/* Career Stats */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.5 }}
-        className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6"
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-3"
       >
         {[
           { value: '40+', label: 'Years of Service (1983-2026)' },
@@ -347,9 +328,9 @@ const CareerTimeline = () => {
           { value: '1995', label: 'IAS Batch (12 Years State Service)' },
           { value: '₹1.2L+', label: 'Cr Projects Cleared' }
         ].map((stat, index) => (
-          <div key={index} className="text-center p-4 bg-cream-100 rounded-lg">
-            <p className="text-3xl font-bold text-navy-900">{stat.value}</p>
-            <p className="text-sm text-gray-600">{stat.label}</p>
+          <div key={index} className="text-center p-4 bg-cream-50 rounded-2xl border border-cream-200/60">
+            <p className="text-xl sm:text-2xl font-bold text-navy-900">{stat.value}</p>
+            <p className="text-xs text-gray-500">{stat.label}</p>
           </div>
         ))}
       </motion.div>

@@ -73,65 +73,59 @@ const Home = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20">
+      <section className="relative min-h-[90vh] md:min-h-[88vh] flex items-center pt-16 md:pt-20">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-cream-50 via-cream-100 to-cream-50" />
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gold-500/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 opacity-25">
+          <div className="absolute top-1/4 right-1/4 w-80 h-80 md:w-96 md:h-96 bg-gold-500/15 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 left-1/4 w-80 h-80 md:w-96 md:h-96 bg-gold-500/8 rounded-full blur-3xl" />
         </div>
         
         <Container className="relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
             {/* Left Content */}
-            <div className="max-w-4xl">
+            <div className="max-w-2xl order-2 lg:order-1">
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+                transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                <span className="inline-block px-4 py-2 bg-gold-500/10 border border-gold-500/30 rounded-full text-gold-600 text-sm font-medium mb-8">
+                <span className="inline-block px-4 py-1.5 bg-gold-500/8 border border-gold-500/20 rounded-full text-gold-600 text-xs font-semibold tracking-wide mb-6">
                   Indian Administrative Service (Retd.)
                 </span>
               </motion.div>
 
               <motion.h1
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-                className="text-5xl md:text-6xl lg:text-7xl font-semibold text-navy-900 leading-tight mb-6"
+                transition={{ duration: 0.7, delay: 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="text-4xl sm:text-5xl lg:text-[3.5rem] font-semibold text-navy-900 leading-[1.1] mb-5"
               >
                 Radheshyam
-                <span className="text-gold-500 block mt-2">Mopalwar</span>
+                <span className="text-gradient-gold block mt-1">Mopalwar</span>
               </motion.h1>
 
               <motion.p
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                className="text-xl md:text-2xl text-gray-600 max-w-2xl mb-10 leading-relaxed"
+                transition={{ duration: 0.7, delay: 0.16, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="text-lg md:text-xl text-gray-600 max-w-xl mb-8 leading-relaxed"
               >
                 Building transformative infrastructure and fostering sustainable development
                 for the progress of Maharashtra and the nation.
               </motion.p>
 
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-                className="flex flex-wrap gap-4"
+                transition={{ duration: 0.7, delay: 0.24, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="flex flex-wrap gap-3"
               >
-                <Link
-                  to="/career"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-gold-500 text-navy-900 font-semibold rounded-lg hover:bg-gold-400 transition-all duration-300 hover:shadow-lg hover:shadow-gold-500/25"
-                >
+                <Link to="/career" className="btn-primary">
                   Explore Career
-                  <ArrowRight size={20} />
+                  <ArrowRight size={18} />
                 </Link>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-4 border-2 border-navy-900/30 text-navy-900 font-semibold rounded-lg hover:border-gold-500 hover:text-gold-600 transition-all duration-300"
-                >
+                <Link to="/contact" className="btn-secondary">
                   Get in Touch
                 </Link>
               </motion.div>
@@ -139,18 +133,18 @@ const Home = () => {
 
             {/* Right Circular Image */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.85 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="hidden lg:flex justify-center items-center"
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="flex justify-center items-center order-1 lg:order-2"
             >
               <div className="relative">
                 {/* Outer decorative ring */}
-                <div className="absolute inset-0 rounded-full border-2 border-gold-500/30 scale-110" />
-                <div className="absolute inset-0 rounded-full border border-gold-500/20 scale-125" />
+                <div className="absolute inset-0 rounded-full border-2 border-gold-500/20 scale-110" />
+                <div className="absolute inset-0 rounded-full border border-gold-500/10 scale-125" />
 
                 {/* Main circular image container */}
-                <div className="w-80 h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden border-4 border-gold-500/20 shadow-2xl shadow-gold-500/10">
+                <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 xl:w-88 xl:h-88 rounded-full overflow-hidden border-[3px] border-gold-500/15 shadow-2xl shadow-gold-500/8">
                   <img
                     src={profileImage}
                     alt="Radheshyam Mopalwar"
@@ -167,67 +161,67 @@ const Home = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2"
         >
-          <div className="w-6 h-10 border-2 border-navy-900/30 rounded-full flex justify-center pt-2">
+          <div className="w-5 h-9 border-2 border-navy-900/20 rounded-full flex justify-center pt-1.5">
             <motion.div
-              animate={{ y: [0, 8, 0] }}
+              animate={{ y: [0, 6, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="w-1.5 h-1.5 bg-gold-500 rounded-full"
+              className="w-1 h-1 bg-gold-500 rounded-full"
             />
           </div>
         </motion.div>
       </section>
 
       {/* About Preview Section */}
-      <section className="py-24 md:py-32 bg-cream-50">
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-50">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               <SectionHeading
                 title="A Legacy of Service"
-                subtitle="Four decades of dedicated service, shaping Maharashtra\'s infrastructure landscape and transforming lives through high-speed connectivity."
+                subtitle="Four decades of dedicated service, shaping Maharashtra's infrastructure landscape and transforming lives through high-speed connectivity."
               />
-              <p className="text-gray-600 text-lg leading-relaxed mb-6">
+              <p className="text-gray-600 text-base leading-relaxed mb-4">
                 Throughout a career spanning four decades, I have been driven by a singular vision: 
                 to redefine the speed of infrastructure execution in India. From my landmark role in the Samruddhi Mahamarg 
                 to strategic leadership in the CM's Infrastructure War Room, my work has focused on high-speed connectivity as a tool for social equity.
               </p>
-              <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                From leading Maharashtra\'s largest expressway project to implementing innovative urban development 
+              <p className="text-gray-600 text-base leading-relaxed mb-6">
+                From leading Maharashtra's largest expressway project to implementing innovative urban development 
                 schemes, every initiative has been guided by the principle of inclusive growth and sustainable progress.
               </p>
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 text-gold-600 font-semibold hover:text-gold-500 transition-colors group"
+                className="inline-flex items-center gap-2 text-gold-600 font-semibold hover:text-gold-500 transition-colors group text-sm"
               >
                 Read full biography
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="relative"
             >
-              <div className="aspect-square bg-cream-100 rounded-2xl overflow-hidden">
+              <div className="aspect-[4/3] sm:aspect-square bg-cream-100 rounded-2xl overflow-hidden shadow-lg">
                 <img
                   src={legacyServiceImage}
                   alt="Legacy of Service"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-gold-500 text-navy-900 p-6 rounded-lg shadow-xl">
-                <p className="font-semibold text-lg">Serving since 1983</p>
-                <p className="text-sm">1995 Batch, IAS</p>
+              <div className="absolute -bottom-4 -left-4 bg-gradient-to-br from-gold-500 to-gold-600 text-navy-900 p-4 sm:p-5 rounded-xl shadow-xl shadow-gold-500/20">
+                <p className="font-semibold text-sm sm:text-base">Serving since 1983</p>
+                <p className="text-xs opacity-80">1995 Batch, IAS</p>
               </div>
             </motion.div>
           </div>
@@ -235,7 +229,7 @@ const Home = () => {
       </section>
 
       {/* Key Highlights Section */}
-      <section className="py-24 md:py-32 bg-cream-100">
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-100">
         <Container>
           <SectionHeading
             title="Impact in Numbers"
@@ -243,22 +237,22 @@ const Home = () => {
             centered
           />
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
             {highlights.map((item, index) => (
               <motion.div
                 key={item.label}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+                transition={{ duration: 0.5, delay: index * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                <Card className="text-center h-full">
-                  <div className="w-16 h-16 bg-gold-500/10 rounded-xl flex items-center justify-center mx-auto mb-6">
-                    <item.icon className="text-gold-500" size={28} />
+                <Card className="text-center h-full" hover>
+                  <div className="w-12 h-12 bg-gold-500/8 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <item.icon className="text-gold-500" size={24} />
                   </div>
-                  <h3 className="text-4xl md:text-5xl font-semibold text-navy-900 mb-2">{item.value}</h3>
-                  <p className="text-gold-500 font-medium mb-3">{item.label}</p>
-                  <p className="text-gray-600 text-sm">{item.description}</p>
+                  <h3 className="text-3xl md:text-4xl font-semibold text-navy-900 mb-1">{item.value}</h3>
+                  <p className="text-gold-600 font-medium text-sm mb-2">{item.label}</p>
+                  <p className="text-gray-500 text-xs leading-relaxed">{item.description}</p>
                 </Card>
               </motion.div>
             ))}
@@ -267,55 +261,52 @@ const Home = () => {
       </section>
 
       {/* Featured Project Section */}
-      <section className="py-24 md:py-32 bg-cream-50">
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-50">
         <Container>
-          <div className="bg-cream-100 rounded-2xl overflow-hidden">
+          <div className="bg-gradient-to-br from-cream-100 to-cream-50 rounded-2xl overflow-hidden border border-cream-200/80 shadow-lg shadow-navy-900/3">
             <div className="grid lg:grid-cols-2">
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -24 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="p-8 md:p-12 lg:p-16"
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="p-6 sm:p-8 lg:p-10 xl:p-12"
               >
-                <span className="inline-block px-4 py-2 bg-gold-500/10 border border-gold-500/30 rounded-full text-gold-600 text-sm font-medium mb-6">
+                <span className="inline-block px-3 py-1 bg-gold-500/8 border border-gold-500/20 rounded-full text-gold-600 text-xs font-semibold mb-5">
                   Featured Project
                 </span>
-                <h3 className="text-3xl md:text-4xl font-semibold text-navy-900 mb-2">{featuredProject.title}</h3>
-                <p className="text-gold-500 text-xl mb-6">{featuredProject.subtitle}</p>
-                <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-navy-900 mb-1">{featuredProject.title}</h3>
+                <p className="text-gold-500 text-lg sm:text-xl mb-5">{featuredProject.subtitle}</p>
+                <p className="text-gray-600 text-base leading-relaxed mb-6">
                   {featuredProject.description}
                 </p>
                 
-                <div className="grid grid-cols-3 gap-6 mb-8">
+                <div className="grid grid-cols-3 gap-4 mb-6">
                   {featuredProject.metrics.map((metric) => (
-                    <div key={metric.label} className="text-center">
-                      <p className="text-2xl md:text-3xl font-semibold text-navy-900">{metric.value}</p>
-                      <p className="text-gray-600 text-sm mt-1">{metric.label}</p>
+                    <div key={metric.label} className="text-center p-3 bg-cream-50 rounded-xl border border-cream-200/60">
+                      <p className="text-xl sm:text-2xl font-semibold text-navy-900">{metric.value}</p>
+                      <p className="text-gray-500 text-xs mt-0.5">{metric.label}</p>
                     </div>
                   ))}
                 </div>
 
-                <Link
-                  to="/projects"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gold-500 text-navy-900 font-semibold rounded-lg hover:bg-gold-400 transition-all duration-300"
-                >
+                <Link to="/projects" className="btn-primary text-sm">
                   View All Projects
-                  <ArrowRight size={18} />
+                  <ArrowRight size={16} />
                 </Link>
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
+                initial={{ opacity: 0, x: 24 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                className="relative flex items-center justify-center"
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="relative flex items-center justify-center bg-cream-200/50 min-h-[280px] lg:min-h-0"
               >
                 <img
                   src={nagpurExpressHighway}
                   alt="Samruddhi Mahamarg - Mumbai-Nagpur Expressway"
-                  className="w-full h-auto object-contain"
+                  className="w-full h-full object-cover lg:object-contain"
                 />
               </motion.div>
             </div>
@@ -324,40 +315,41 @@ const Home = () => {
       </section>
 
       {/* Latest Updates Section */}
-      <section className="py-24 md:py-32 bg-cream-100">
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-100">
         <Container>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-8 md:mb-10">
             <SectionHeading
               title="Latest Updates"
               subtitle="Thoughts on governance, infrastructure, and the future of public service."
+              className="mb-0"
             />
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 text-gold-600 font-semibold hover:text-gold-500 transition-colors group mb-12 md:mb-0"
+              className="inline-flex items-center gap-2 text-gold-600 font-semibold hover:text-gold-500 transition-colors group text-sm mb-2 md:mb-0"
             >
               View all posts
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
             {latestUpdates.map((post, index) => (
               <motion.article
                 key={post.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+                transition={{ duration: 0.5, delay: index * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                <Card className="h-full flex flex-col">
-                  <span className="inline-block px-3 py-1 bg-gold-500/10 text-gold-600 text-xs font-medium rounded-full mb-4 w-fit">
+                <Card className="h-full flex flex-col" hover>
+                  <span className="inline-block px-2.5 py-0.5 bg-gold-500/8 text-gold-600 text-[11px] font-semibold rounded-full mb-3 w-fit uppercase tracking-wide">
                     {post.category}
                   </span>
-                  <p className="text-gray-500 text-sm mb-3">{post.date}</p>
-                  <h3 className="text-xl font-semibold text-navy-900 mb-3 hover:text-gold-600 transition-colors cursor-pointer">
+                  <p className="text-gray-400 text-xs mb-2">{post.date}</p>
+                  <h3 className="text-base sm:text-lg font-semibold text-navy-900 mb-2 hover:text-gold-600 transition-colors cursor-pointer leading-snug">
                     {post.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed flex-grow">
+                  <p className="text-gray-500 text-sm leading-relaxed flex-grow">
                     {post.excerpt}
                   </p>
                 </Card>
@@ -368,7 +360,7 @@ const Home = () => {
       </section>
 
       {/* Press & Media Section */}
-      <section className="py-24 md:py-32 bg-cream-50">
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-50">
         <Container>
           <SectionHeading
             title="Press & Media"
@@ -381,7 +373,7 @@ const Home = () => {
       </section>
 
       {/* Resources Hub Section */}
-      <section className="py-24 md:py-32 bg-cream-100">
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-100">
         <Container>
           <SectionHeading
             title="Policy & Resource Hub"
@@ -394,28 +386,25 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 md:py-32 bg-cream-50">
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-50">
         <Container>
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="max-w-3xl mx-auto text-center"
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="max-w-2xl mx-auto text-center"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-navy-900 mb-6">
-              Let's Build Something <span className="text-gold-500">Meaningful</span> Together
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-navy-900 mb-4">
+              Let's Build Something <span className="text-gradient-gold">Meaningful</span> Together
             </h2>
-            <p className="text-gray-600 text-lg mb-10 leading-relaxed">
+            <p className="text-gray-600 text-base sm:text-lg mb-8 leading-relaxed">
               Whether you seek mentorship, collaboration on public initiatives, or wish to discuss
               transformative governance approaches, I welcome the conversation.
             </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gold-500 text-navy-900 font-semibold rounded-lg hover:bg-gold-400 transition-all duration-300 hover:shadow-lg hover:shadow-gold-500/25"
-            >
+            <Link to="/contact" className="btn-primary">
               Start a Conversation
-              <ArrowRight size={20} />
+              <ArrowRight size={18} />
             </Link>
           </motion.div>
         </Container>

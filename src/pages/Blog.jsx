@@ -61,23 +61,23 @@ const Blog = () => {
   ]
 
   return (
-    <div className="pt-20">
+    <div className="pt-16 md:pt-20">
       {/* Hero */}
-      <section className="py-24 md:py-32 bg-cream-50">
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-50">
         <Container>
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-2xl mx-auto text-center">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              <span className="inline-block px-4 py-2 bg-gold-500/10 border border-gold-500/30 rounded-full text-gold-600 text-sm font-medium mb-6">
+              <span className="inline-block px-4 py-1.5 bg-gold-500/8 border border-gold-500/20 rounded-full text-gold-600 text-xs font-semibold tracking-wide mb-5">
                 Blog
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-navy-900 mb-6">
-                Thoughts & <span className="text-gold-500">Insights</span>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-navy-900 mb-4">
+                Thoughts & <span className="text-gradient-gold">Insights</span>
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                 Reflections on governance, infrastructure, leadership, and the lessons 
                 learned from four decades of experience across public and private sectors.
               </p>
@@ -87,15 +87,15 @@ const Blog = () => {
       </section>
 
       {/* Featured Post */}
-      <section className="py-16 bg-cream-50">
+      <section className="py-10 md:py-12 bg-cream-50">
         <Container>
           <motion.article
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <Card className="overflow-hidden">
+            <Card className="overflow-hidden" hover={false}>
               <div className="grid lg:grid-cols-2">
                 <div className="aspect-video lg:aspect-auto overflow-hidden">
                   <img
@@ -104,30 +104,30 @@ const Blog = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="p-8 lg:p-12">
-                  <div className="flex items-center gap-4 mb-4">
-                    <span className="inline-block px-3 py-1 bg-gold-500/10 text-gold-600 text-xs font-medium rounded-full">
+                <div className="p-6 sm:p-8 lg:p-10">
+                  <div className="flex flex-wrap items-center gap-3 mb-3">
+                    <span className="inline-block px-2.5 py-0.5 bg-gold-500/8 text-gold-600 text-[11px] font-semibold rounded-full uppercase tracking-wide">
                       {featuredPost.category}
                     </span>
-                    <span className="flex items-center gap-1 text-gray-500 text-sm">
-                      <Calendar size={14} />
+                    <span className="flex items-center gap-1 text-gray-400 text-xs">
+                      <Calendar size={12} />
                       {featuredPost.date}
                     </span>
-                    <span className="flex items-center gap-1 text-gray-500 text-sm">
-                      <Clock size={14} />
+                    <span className="flex items-center gap-1 text-gray-400 text-xs">
+                      <Clock size={12} />
                       {featuredPost.readTime}
                     </span>
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-semibold text-navy-900 mb-4 hover:text-gold-600 transition-colors cursor-pointer">
+                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-navy-900 mb-3 hover:text-gold-600 transition-colors cursor-pointer leading-snug">
                     {featuredPost.title}
                   </h2>
-                  <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                  <p className="text-gray-500 text-base leading-relaxed mb-4">
                     {featuredPost.excerpt}
                   </p>
-                  <div className="flex flex-wrap items-center gap-3 mb-6">
+                  <div className="flex flex-wrap items-center gap-2">
                     {featuredPost.tags.map((tag) => (
-                      <span key={tag} className="flex items-center gap-1 text-gray-500 text-sm">
-                        <Tag size={12} />
+                      <span key={tag} className="flex items-center gap-1 text-gray-400 text-xs">
+                        <Tag size={10} />
                         {tag}
                       </span>
                     ))}
@@ -140,7 +140,7 @@ const Blog = () => {
       </section>
 
       {/* All Posts */}
-      <section className="py-24 md:py-32 bg-cream-100">
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-100">
         <Container>
           <SectionHeading
             title="Recent Articles"
@@ -148,31 +148,31 @@ const Blog = () => {
             centered
           />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
             {posts.map((post, index) => (
               <motion.article
                 key={post.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+                transition={{ duration: 0.5, delay: index * 0.06, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                <Card className="h-full flex flex-col">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="inline-block px-3 py-1 bg-gold-500/10 text-gold-600 text-xs font-medium rounded-full">
+                <Card className="h-full flex flex-col" hover>
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <span className="inline-block px-2.5 py-0.5 bg-gold-500/8 text-gold-600 text-[11px] font-semibold rounded-full uppercase tracking-wide">
                       {post.category}
                     </span>
-                    <span className="text-gray-500 text-xs">{post.readTime}</span>
+                    <span className="text-gray-400 text-[11px]">{post.readTime}</span>
                   </div>
-                  <h3 className="text-xl font-semibold text-navy-900 mb-3 hover:text-gold-600 transition-colors cursor-pointer">
+                  <h3 className="text-base sm:text-lg font-semibold text-navy-900 mb-2 hover:text-gold-600 transition-colors cursor-pointer leading-snug">
                     {post.title}
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">
+                  <p className="text-gray-500 text-sm leading-relaxed mb-3 flex-grow">
                     {post.excerpt}
                   </p>
-                  <div className="pt-4 border-t border-cream-200 flex items-center">
-                    <span className="flex items-center gap-1 text-gray-500 text-sm">
-                      <Calendar size={14} />
+                  <div className="pt-3 border-t border-cream-200/60 flex items-center">
+                    <span className="flex items-center gap-1 text-gray-400 text-xs">
+                      <Calendar size={12} />
                       {post.date}
                     </span>
                   </div>
@@ -185,30 +185,30 @@ const Blog = () => {
       </section>
 
       {/* Newsletter CTA */}
-      <section className="py-24 bg-cream-50">
+      <section className="py-14 md:py-16 bg-cream-50">
         <Container>
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="max-w-2xl mx-auto text-center"
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="max-w-xl mx-auto text-center"
           >
-            <h2 className="text-3xl font-semibold text-navy-900 mb-4">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-navy-900 mb-3">
               Stay Updated
             </h2>
-            <p className="text-gray-600 mb-8">
+            <p className="text-gray-500 text-sm sm:text-base mb-6">
               Receive notifications when new articles are published. No spam, just thoughtful insights.
             </p>
-            <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-grow px-4 py-3 bg-cream-100 border border-cream-200 rounded-lg text-navy-900 placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors"
+                className="input-field text-sm"
               />
               <button
                 type="submit"
-                className="px-6 py-3 bg-gold-500 text-navy-900 font-semibold rounded-lg hover:bg-gold-400 transition-all duration-300 whitespace-nowrap"
+                className="btn-primary text-sm whitespace-nowrap justify-center"
               >
                 Subscribe
               </button>

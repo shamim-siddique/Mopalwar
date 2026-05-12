@@ -4,7 +4,7 @@ import Container from '../components/Container'
 import SectionHeading from '../components/SectionHeading'
 import Card from '../components/Card'
 import ProjectGallery from '../components/ProjectGallery'
-import { ArrowRight, Building2, Route, TreePine, Train, Droplets } from 'lucide-react'
+import { ArrowRight, Building2, Route } from 'lucide-react'
 import samruddhiImage from '../assets/images/Samruddhi Mahamarg.png'
 
 const Projects = () => {
@@ -74,24 +74,24 @@ const Projects = () => {
   ]
 
   return (
-    <div className="pt-20">
+    <div className="pt-16 md:pt-20">
       {/* Hero */}
-      <section className="py-24 md:py-32 bg-cream-50">
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-50">
         <Container>
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-2xl mx-auto text-center">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              <span className="inline-block px-4 py-2 bg-gold-500/10 border border-gold-500/30 rounded-full text-gold-600 text-sm font-medium mb-6">
+              <span className="inline-block px-4 py-1.5 bg-gold-500/8 border border-gold-500/20 rounded-full text-gold-600 text-xs font-semibold tracking-wide mb-5">
                 Projects
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-navy-900 mb-6">
-                Building <span className="text-gold-600">Tomorrow</span>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-navy-900 mb-4">
+                Building <span className="text-gradient-gold">Tomorrow</span>
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed">
-                Transformative infrastructure projects that have reshaped Maharashtra\'s 
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                Transformative infrastructure projects that have reshaped Maharashtra's 
                 landscape and improved millions of lives.
               </p>
             </motion.div>
@@ -100,20 +100,20 @@ const Projects = () => {
       </section>
 
       {/* Impact Stats */}
-      <section className="py-16 bg-cream-100">
+      <section className="py-10 md:py-12 bg-cream-100">
         <Container>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
             {impactStats.map((stat, index) => (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="text-center"
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                className="text-center p-4 sm:p-5 bg-cream-50 rounded-2xl border border-cream-200/60"
               >
-                <p className="text-3xl md:text-4xl font-semibold text-gold-600 mb-2">{stat.value}</p>
-                <p className="text-gray-600 text-sm">{stat.label}</p>
+                <p className="text-xl sm:text-2xl font-semibold text-gold-600 mb-1">{stat.value}</p>
+                <p className="text-gray-500 text-xs sm:text-sm">{stat.label}</p>
               </motion.div>
             ))}
           </div>
@@ -121,7 +121,7 @@ const Projects = () => {
       </section>
 
       {/* Featured Project */}
-      <section className="py-24 md:py-32 bg-cream-50">
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-50">
         <Container>
           <SectionHeading
             title={featuredProject.title}
@@ -130,34 +130,34 @@ const Projects = () => {
           />
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="bg-cream-100 rounded-2xl overflow-hidden"
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="bg-gradient-to-br from-cream-100 to-cream-50 rounded-2xl overflow-hidden border border-cream-200/80 shadow-lg shadow-navy-900/3"
           >
             <div className="grid lg:grid-cols-2">
-              <div className="p-8 md:p-12">
-                <span className="inline-block px-4 py-2 bg-gold-500/10 border border-gold-500/30 rounded-full text-gold-600 text-sm font-medium mb-6">
+              <div className="p-6 sm:p-8 lg:p-10">
+                <span className="inline-block px-3 py-1 bg-gold-500/8 border border-gold-500/20 rounded-full text-gold-600 text-xs font-semibold mb-5">
                   {featuredProject.category}
                 </span>
-                <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                <p className="text-gray-600 text-base leading-relaxed mb-6">
                   {featuredProject.description}
                 </p>
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
                   {featuredProject.stats.map((stat) => (
-                    <div key={stat.label} className="text-center p-4 bg-cream-50 rounded-lg">
-                      <p className="text-xl font-semibold text-gold-600">{stat.value}</p>
-                      <p className="text-gray-600 text-xs mt-1">{stat.label}</p>
+                    <div key={stat.label} className="text-center p-3 bg-cream-50 rounded-xl border border-cream-200/60">
+                      <p className="text-lg sm:text-xl font-semibold text-gold-600">{stat.value}</p>
+                      <p className="text-gray-500 text-[11px] mt-0.5">{stat.label}</p>
                     </div>
                   ))}
                 </div>
 
-                <h4 className="text-navy-900 font-semibold mb-4">Key Highlights</h4>
-                <ul className="space-y-2 mb-8">
+                <h4 className="text-navy-900 font-semibold text-sm mb-3">Key Highlights</h4>
+                <ul className="space-y-2 mb-6">
                   {featuredProject.highlights.map((highlight) => (
-                    <li key={highlight} className="flex items-start gap-3 text-gray-600">
+                    <li key={highlight} className="flex items-start gap-2.5 text-gray-600 text-sm">
                       <div className="w-1.5 h-1.5 bg-gold-500 rounded-full mt-2 flex-shrink-0" />
                       {highlight}
                     </li>
@@ -165,11 +165,11 @@ const Projects = () => {
                 </ul>
               </div>
 
-              <div className="min-h-[400px] flex items-center justify-center rounded-2xl overflow-hidden">
+              <div className="min-h-[280px] lg:min-h-0 flex items-center justify-center bg-cream-200/40">
                 <img
                   src={samruddhiImage}
                   alt="Samruddhi Mahamarg Visualization"
-                  className="max-w-full max-h-full object-contain"
+                  className="w-full h-full object-contain"
                 />
               </div>
             </div>
@@ -178,7 +178,7 @@ const Projects = () => {
       </section>
 
       {/* Visual Project Gallery */}
-      <section className="py-24 md:py-32 bg-cream-100">
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-100">
         <Container>
           <SectionHeading
             title="Project Gallery"
@@ -191,7 +191,7 @@ const Projects = () => {
       </section>
 
       {/* Other Projects */}
-      <section className="py-24 md:py-32 bg-cream-100">
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-50">
         <Container>
           <SectionHeading
             title="Other Major Projects"
@@ -199,28 +199,28 @@ const Projects = () => {
             centered
           />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
             {otherProjects.map((project, index) => (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+                transition={{ duration: 0.5, delay: index * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                <Card className="h-full flex flex-col">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-gold-500/10 rounded-lg flex items-center justify-center">
-                      <project.icon className="text-gold-500" size={24} />
+                <Card className="h-full flex flex-col" hover>
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <div className="w-9 h-9 bg-gold-500/8 rounded-lg flex items-center justify-center">
+                      <project.icon className="text-gold-500" size={18} />
                     </div>
-                    <span className="text-gold-600 text-xs font-medium uppercase tracking-wider">
+                    <span className="text-gold-600 text-[10px] font-semibold uppercase tracking-wider">
                       {project.category}
                     </span>
                   </div>
-                  <h3 className="text-xl font-semibold text-navy-900 mb-3">{project.title}</h3>
-                  <p className="text-gray-600 mb-4 flex-grow">{project.description}</p>
-                  <div className="pt-4 border-t border-cream-200">
-                    <p className="text-gold-600 text-sm font-medium">Impact: {project.impact}</p>
+                  <h3 className="text-base sm:text-lg font-semibold text-navy-900 mb-2">{project.title}</h3>
+                  <p className="text-gray-500 text-sm mb-3 flex-grow leading-relaxed">{project.description}</p>
+                  <div className="pt-3 border-t border-cream-200/60">
+                    <p className="text-gold-600 text-xs font-medium">Impact: {project.impact}</p>
                   </div>
                 </Card>
               </motion.div>
@@ -230,29 +230,29 @@ const Projects = () => {
       </section>
 
       {/* Project Philosophy */}
-      <section className="py-24 md:py-32 bg-cream-50">
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-100">
         <Container>
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-2xl mx-auto text-center">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              <h2 className="text-3xl md:text-4xl font-semibold text-navy-900 mb-6">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-navy-900 mb-4">
                 Project Philosophy
               </h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-8">
+              <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6 italic">
                 "Infrastructure is about more than concrete; it's about the speed of execution. 
                 We replaced traditional delays with a 'War Room' approach, ensuring that land 
                 acquisition and financing were completed before the first shovel hit the ground."
               </p>
               <Link
                 to="/achievements"
-                className="inline-flex items-center gap-2 text-gold-600 font-semibold hover:text-gold-500 transition-colors group"
+                className="inline-flex items-center gap-2 text-gold-600 font-semibold hover:text-gold-500 transition-colors group text-sm"
               >
                 View Awards & Recognition
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
           </div>

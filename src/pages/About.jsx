@@ -63,23 +63,23 @@ const About = () => {
   ]
 
   return (
-    <div className="pt-20">
+    <div className="pt-16 md:pt-20">
       {/* Hero */}
-      <section className="py-24 md:py-32 bg-cream-50">
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-50">
         <Container>
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-2xl mx-auto text-center">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              <span className="inline-block px-4 py-2 bg-gold-500/10 border border-gold-500/30 rounded-full text-gold-600 text-sm font-medium mb-6">
+              <span className="inline-block px-4 py-1.5 bg-gold-500/8 border border-gold-500/20 rounded-full text-gold-600 text-xs font-semibold tracking-wide mb-5">
                 About
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-navy-900 mb-6">
-                A Life Dedicated to <span className="text-gold-500">Public Service</span>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-navy-900 mb-4">
+                A Life Dedicated to <span className="text-gradient-gold">Public Service</span>
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                 Four decades of unwavering commitment to nation-building through 
                 effective governance, transformative infrastructure, and inclusive development.
               </p>
@@ -89,16 +89,16 @@ const About = () => {
       </section>
 
       {/* Biography */}
-      <section className="py-24 md:py-32 bg-cream-100">
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-100">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              <div className="aspect-[4/5] bg-cream-200 rounded-2xl overflow-hidden">
+              <div className="aspect-[4/5] bg-cream-200 rounded-2xl overflow-hidden shadow-lg">
                 <img 
                   src={radheshyamImage} 
                   alt="Radheshyam Mopalwar" 
@@ -108,17 +108,17 @@ const About = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              <h2 className="text-3xl md:text-4xl font-semibold text-navy-900 mb-6">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-navy-900 mb-3">
                 Radheshyam Mopalwar (IAS Retd.)
               </h2>
-              <p className="text-gold-500 text-lg mb-6">A Legacy of Transformative Infrastructure</p>
+              <p className="text-gold-600 text-base mb-5">A Legacy of Transformative Infrastructure</p>
               
-              <div className="space-y-4 text-gray-600 leading-relaxed">
+              <div className="space-y-3 text-gray-600 leading-relaxed text-sm sm:text-base">
                 <p>
                   With over four decades of administrative and corporate experience, Radheshyam Mopalwar is recognized as the chief architect
                   behind Maharashtra's modern infrastructure. A member of the 1995-batch IAS, his career has been
@@ -143,15 +143,15 @@ const About = () => {
                 </p>
               </div>
 
-              <div className="mt-8 pt-8 border-t border-cream-200">
-                <div className="grid grid-cols-2 gap-6">
-                  <div>
-                    <p className="text-gold-500 text-3xl font-semibold">40+</p>
-                    <p className="text-gray-600">Years of Experience</p>
+              <div className="mt-6 pt-6 border-t border-cream-200/80">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="p-4 bg-cream-50 rounded-xl border border-cream-200/60">
+                    <p className="text-gold-600 text-2xl sm:text-3xl font-semibold">40+</p>
+                    <p className="text-gray-500 text-sm">Years of Experience</p>
                   </div>
-                  <div>
-                    <p className="text-gold-500 text-3xl font-semibold">15+</p>
-                    <p className="text-gray-600">Key Positions</p>
+                  <div className="p-4 bg-cream-50 rounded-xl border border-cream-200/60">
+                    <p className="text-gold-600 text-2xl sm:text-3xl font-semibold">15+</p>
+                    <p className="text-gray-500 text-sm">Key Positions</p>
                   </div>
                 </div>
               </div>
@@ -161,7 +161,7 @@ const About = () => {
       </section>
 
       {/* Values */}
-      <section className="py-24 md:py-32 bg-cream-50">
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-50">
         <Container>
           <SectionHeading
             title="Core Values"
@@ -169,21 +169,21 @@ const About = () => {
             centered
           />
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+                transition={{ duration: 0.5, delay: index * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                <Card className="h-full text-center">
-                  <div className="w-16 h-16 bg-gold-500/10 rounded-xl flex items-center justify-center mx-auto mb-6">
-                    <value.icon className="text-gold-500" size={28} />
+                <Card className="h-full text-center" hover>
+                  <div className="w-12 h-12 bg-gold-500/8 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <value.icon className="text-gold-500" size={24} />
                   </div>
-                  <h3 className="text-xl font-semibold text-navy-900 mb-3">{value.title}</h3>
-                  <p className="text-gray-600">{value.description}</p>
+                  <h3 className="text-lg font-semibold text-navy-900 mb-2">{value.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{value.description}</p>
                 </Card>
               </motion.div>
             ))}
@@ -192,7 +192,7 @@ const About = () => {
       </section>
 
       {/* Timeline */}
-      <section className="py-24 md:py-32 bg-cream-100">
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-100">
         <Container>
           <SectionHeading
             title="Career Journey"
@@ -200,29 +200,29 @@ const About = () => {
             centered
           />
 
-          <div className="max-w-4xl mx-auto">
-            <div className="space-y-8">
+          <div className="max-w-3xl mx-auto">
+            <div className="space-y-6">
               {timeline.map((item, index) => (
                 <motion.div
                   key={item.year}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-                  className="flex gap-6 md:gap-8"
+                  transition={{ duration: 0.5, delay: index * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  className="flex gap-4 md:gap-5"
                 >
                   <div className="flex flex-col items-center">
-                    <div className="w-4 h-4 bg-gold-500 rounded-full" />
+                    <div className="w-3 h-3 bg-gold-500 rounded-full ring-4 ring-gold-500/15" />
                     {index < timeline.length - 1 && (
-                      <div className="w-0.5 flex-grow bg-cream-200 mt-2" />
+                      <div className="w-px flex-grow bg-cream-200 mt-2" />
                     )}
                   </div>
-                  <div className="pb-8">
-                    <span className="inline-block px-3 py-1 bg-gold-500/10 text-gold-600 text-sm font-medium rounded-full mb-2">
+                  <div className="pb-6 -mt-1">
+                    <span className="inline-block px-2.5 py-0.5 bg-gold-500/8 text-gold-600 text-[11px] font-semibold rounded-full mb-1.5">
                       {item.year}
                     </span>
-                    <h3 className="text-xl font-semibold text-navy-900 mb-2">{item.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                    <h3 className="text-base sm:text-lg font-semibold text-navy-900 mb-1">{item.title}</h3>
+                    <p className="text-gray-500 text-sm leading-relaxed">{item.description}</p>
                   </div>
                 </motion.div>
               ))}

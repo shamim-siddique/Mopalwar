@@ -1,28 +1,29 @@
 import { motion } from 'framer-motion'
 
-const SectionHeading = ({ 
-  title, 
-  subtitle = '', 
+const SectionHeading = ({
+  title,
+  subtitle = '',
   centered = false,
-  light = false 
+  light = false,
+  className = ''
 }) => {
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`mb-12 ${centered ? 'text-center' : ''}`}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+      className={`mb-8 md:mb-10 ${centered ? 'text-center' : ''} ${className}`}
     >
-      <h2 className={`text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-4 ${light ? 'text-navy-900' : 'text-navy-900'}`}>
+      <h2 className={`text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight mb-3 ${light ? 'text-navy-900' : 'text-navy-900'}`}>
         {title}
       </h2>
       {subtitle && (
-        <p className={`text-lg md:text-xl max-w-2xl ${centered ? 'mx-auto' : ''} ${light ? 'text-navy-700' : 'text-gray-600'}`}>
+        <p className={`text-base sm:text-lg max-w-2xl leading-relaxed ${centered ? 'mx-auto' : ''} ${light ? 'text-navy-700' : 'text-gray-600'}`}>
           {subtitle}
         </p>
       )}
-      <div className={`h-1 w-24 bg-gold-500 mt-6 ${centered ? 'mx-auto' : ''}`} />
+      <div className={`h-0.5 w-16 bg-gradient-to-r from-gold-500 to-gold-300 mt-4 ${centered ? 'mx-auto' : ''}`} />
     </motion.div>
   )
 }

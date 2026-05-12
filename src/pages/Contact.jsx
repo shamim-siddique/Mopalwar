@@ -49,23 +49,23 @@ const Contact = () => {
   ]
 
   return (
-    <div className="pt-20">
+    <div className="pt-16 md:pt-20">
       {/* Hero */}
-      <section className="py-24 md:py-32 bg-cream-50">
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-50">
         <Container>
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-2xl mx-auto text-center">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              <span className="inline-block px-4 py-2 bg-gold-500/10 border border-gold-500/30 rounded-full text-gold-600 text-sm font-medium mb-6">
+              <span className="inline-block px-4 py-1.5 bg-gold-500/8 border border-gold-500/20 rounded-full text-gold-600 text-xs font-semibold tracking-wide mb-5">
                 Contact
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-navy-900 mb-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-navy-900 mb-4">
                 Connect with Radheshyam Mopalwar
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                 Strategic Advisory on Infrastructure, Governance, and Nation-Building.
                 Available for consulting, high-level policy advisory, and mentorship.
               </p>
@@ -75,24 +75,24 @@ const Contact = () => {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-16 bg-cream-100">
+      <section className="py-10 md:py-12 bg-cream-100">
         <Container>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
             {contactInfo.map((item, index) => (
               <motion.a
                 key={item.title}
                 href={item.href || undefined}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className={`bg-cream-50 rounded-lg p-6 text-center ${item.href ? 'hover:bg-cream-200 transition-colors cursor-pointer' : ''}`}
+                transition={{ duration: 0.4, delay: index * 0.06 }}
+                className={`bg-cream-50 rounded-2xl p-5 text-center border border-cream-200/60 transition-all duration-300 ${item.href ? 'hover:bg-cream-100 hover:border-gold-500/20 cursor-pointer' : ''}`}
               >
-                <div className="w-12 h-12 bg-gold-500/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="text-gold-500" size={22} />
+                <div className="w-10 h-10 bg-gold-500/8 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <item.icon className="text-gold-500" size={18} />
                 </div>
-                <h3 className="text-navy-900 font-medium mb-1">{item.title}</h3>
-                <p className="text-gray-600 text-sm">{item.value}</p>
+                <h3 className="text-navy-900 font-medium text-sm mb-0.5">{item.title}</h3>
+                <p className="text-gray-500 text-xs leading-snug">{item.value}</p>
               </motion.a>
             ))}
           </div>
@@ -100,25 +100,25 @@ const Contact = () => {
       </section>
 
       {/* Contact Form */}
-      <section className="py-24 md:py-32 bg-cream-50">
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-50">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14">
             {/* Form */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               <SectionHeading
                 title="Send a Message"
                 subtitle="Fill out the form below and I will get back to you within 48 hours."
               />
 
-              <form className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-6">
+              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-navy-900 font-medium mb-2">
+                    <label htmlFor="name" className="block text-navy-900 font-medium text-sm mb-1.5">
                       Full Name
                     </label>
                     <input
@@ -126,11 +126,11 @@ const Contact = () => {
                       id="name"
                       name="name"
                       placeholder="John Doe"
-                      className="w-full px-4 py-3 bg-cream-100 border border-cream-200 rounded-lg text-navy-900 placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors"
+                      className="input-field text-sm"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-navy-900 font-medium mb-2">
+                    <label htmlFor="email" className="block text-navy-900 font-medium text-sm mb-1.5">
                       Email Address
                     </label>
                     <input
@@ -138,19 +138,19 @@ const Contact = () => {
                       id="email"
                       name="email"
                       placeholder="john@example.com"
-                      className="w-full px-4 py-3 bg-cream-100 border border-cream-200 rounded-lg text-navy-900 placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors"
+                      className="input-field text-sm"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-navy-900 font-medium mb-2">
+                  <label htmlFor="subject" className="block text-navy-900 font-medium text-sm mb-1.5">
                     Subject
                   </label>
                   <select
                     id="subject"
                     name="subject"
-                    className="w-full px-4 py-3 bg-cream-100 border border-cream-200 rounded-lg text-navy-900 focus:outline-none focus:border-gold-500 transition-colors appearance-none cursor-pointer"
+                    className="input-field text-sm appearance-none cursor-pointer"
                   >
                     <option value="">Select a topic</option>
                     <option value="infrastructure">Infrastructure Strategy Consulting</option>
@@ -162,72 +162,72 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-navy-900 font-medium mb-2">
+                  <label htmlFor="message" className="block text-navy-900 font-medium text-sm mb-1.5">
                     Message
                   </label>
                   <textarea
                     id="message"
                     name="message"
-                    rows={6}
+                    rows={5}
                     placeholder="Your message here..."
-                    className="w-full px-4 py-3 bg-cream-100 border border-cream-200 rounded-lg text-navy-900 placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors resize-none"
+                    className="input-field text-sm resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold-500 text-navy-900 font-semibold rounded-lg hover:bg-gold-400 transition-all duration-300"
+                  className="btn-primary text-sm"
                 >
                   Send Message
-                  <Send size={18} />
+                  <Send size={16} />
                 </button>
               </form>
             </motion.div>
 
             {/* Additional Info */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               <SectionHeading
                 title="Connect Online"
                 subtitle="Follow me on social media for regular updates and insights."
               />
 
-              <div className="space-y-4 mb-12">
+              <div className="space-y-3 mb-8">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={social.title}
                     href={social.href}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 12 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className="flex items-center gap-4 p-4 bg-cream-100 rounded-lg hover:bg-cream-200 transition-colors group"
+                    transition={{ duration: 0.4, delay: index * 0.06 }}
+                    className="flex items-center gap-3 p-3.5 bg-cream-100 rounded-xl border border-cream-200/60 hover:bg-cream-100 hover:border-gold-500/20 transition-all group"
                   >
-                    <div className="w-12 h-12 bg-gold-500/10 rounded-lg flex items-center justify-center group-hover:bg-gold-500/20 transition-colors">
-                      <social.icon className="text-gold-500" size={22} />
+                    <div className="w-10 h-10 bg-gold-500/8 rounded-xl flex items-center justify-center group-hover:bg-gold-500/15 transition-colors">
+                      <social.icon className="text-gold-500" size={18} />
                     </div>
                     <div className="flex-grow">
-                      <h3 className="text-navy-900 font-medium">{social.title}</h3>
-                      <p className="text-gray-600 text-sm">{social.description}</p>
+                      <h3 className="text-navy-900 font-medium text-sm">{social.title}</h3>
+                      <p className="text-gray-500 text-xs">{social.description}</p>
                     </div>
                   </motion.a>
                 ))}
               </div>
 
-              <div className="bg-cream-100 rounded-lg p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <Globe className="text-gold-500" size={24} />
-                  <h3 className="text-navy-900 font-semibold">Response Policy</h3>
+              <div className="bg-cream-100 rounded-2xl p-5 border border-cream-200/60">
+                <div className="flex items-center gap-2.5 mb-3">
+                  <Globe className="text-gold-500" size={20} />
+                  <h3 className="text-navy-900 font-semibold text-sm">Response Policy</h3>
                 </div>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                <p className="text-gray-500 text-xs leading-relaxed mb-3">
                   Response Time: 48–72 hours for verified professional inquiries.
                   Please include details about your organization and specific areas where you seek guidance.
                 </p>
-                <p className="text-gray-500 text-sm">
+                <p className="text-gray-400 text-xs">
                   Note: Available for strategic consulting, high-level policy advisory, and mentorship.
                 </p>
               </div>
@@ -237,7 +237,7 @@ const Contact = () => {
       </section>
 
       {/* Map */}
-      <section className="py-24 md:py-32 bg-cream-100">
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-100">
         <Container>
           <SectionHeading
             title="Office Location"
@@ -246,11 +246,11 @@ const Contact = () => {
           />
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="aspect-video rounded-2xl overflow-hidden shadow-xl"
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="aspect-[16/9] sm:aspect-[21/9] rounded-2xl overflow-hidden shadow-lg shadow-navy-900/5 border border-cream-200/80"
           >
             <MapContainer
               center={[18.925034, 72.824555]}
@@ -265,8 +265,8 @@ const Contact = () => {
               <Marker position={[18.925034, 72.824555]}>
                 <Popup>
                   <div className="text-center">
-                    <p className="font-semibold text-navy-900">Hazoor Multi Projects Ltd</p>
-                    <p className="text-sm text-gray-600">Nariman Point, Mumbai</p>
+                    <p className="font-semibold text-navy-900 text-sm">Hazoor Multi Projects Ltd</p>
+                    <p className="text-xs text-gray-600">Nariman Point, Mumbai</p>
                   </div>
                 </Popup>
               </Marker>
@@ -274,11 +274,11 @@ const Contact = () => {
           </motion.div>
           
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="text-center mt-6 text-navy-900 font-semibold text-lg"
+            transition={{ duration: 0.4, delay: 0.15 }}
+            className="text-center mt-4 text-navy-900 font-semibold text-base"
           >
             Hazoor Multi Projects Limited
           </motion.p>

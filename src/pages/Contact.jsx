@@ -3,7 +3,20 @@ import Container from '../components/Container'
 import SectionHeading from '../components/SectionHeading'
 import { Mail, Phone, MapPin, Linkedin, Twitter, Send, Clock, Globe } from 'lucide-react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import L from 'leaflet'
+import markerIconUrl from 'leaflet/dist/images/marker-icon.png'
+import markerShadowUrl from 'leaflet/dist/images/marker-shadow.png'
 import 'leaflet/dist/leaflet.css'
+
+// Fix Leaflet marker icon for production builds
+const customMarkerIcon = L.icon({
+  iconUrl: markerIconUrl,
+  shadowUrl: markerShadowUrl,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+})
 
 const Contact = () => {
   const contactInfo = [
@@ -262,7 +275,7 @@ const Contact = () => {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-              <Marker position={[18.925034, 72.824555]}>
+              <Marker position={[18.925034, 72.824555]} icon={customMarkerIcon}>
                 <Popup>
                   <div className="text-center">
                     <p className="font-semibold text-navy-900 text-sm">Hazoor Multi Projects Ltd</p>

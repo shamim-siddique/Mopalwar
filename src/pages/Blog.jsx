@@ -4,60 +4,60 @@ import Container from '../components/Container'
 import SectionHeading from '../components/SectionHeading'
 import Card from '../components/Card'
 import { Calendar, Clock, ArrowRight, Tag } from 'lucide-react'
-import infrastructureImage from '../assets/images/Infrastructure.png'
+import warRoomImage from '../assets/images/War Room.png'
 
 const Blog = () => {
   const featuredPost = {
-    title: 'The Future of Infrastructure: Lessons from Samruddhi Mahamarg',
-    date: 'December 15, 2024',
-    readTime: '8 min read',
-    category: 'Infrastructure',
-    excerpt: 'Reflecting on the journey of India\'s one of most ambitious expressway projects and the lessons it holds for future large-scale infrastructure development in the country.',
-    tags: ['Infrastructure', 'Governance', 'Maharashtra', 'Development']
+    title: 'The Corporate Pivot: Applying \'War Room\' Tactics to Private Infrastructure',
+    date: 'March 12, 2026',
+    readTime: '10 min read',
+    category: 'Leadership',
+    excerpt: 'Reflecting on my first two years in the private sector and how the rapid execution models we built for the Samruddhi Mahamarg are now transforming private-sector delivery.',
+    tags: ['Leadership', 'PrivateSector', 'Infrastructure']
   }
 
   const posts = [
     {
-      title: 'Building Trust Through Transparency: My Approach to Governance',
-      date: 'November 28, 2024',
-      readTime: '6 min read',
+      title: 'The Future of Public-Private Partnerships in 2026',
+      date: 'January 15, 2026',
+      readTime: '8 min read',
       category: 'Governance',
-      excerpt: 'How open communication and stakeholder engagement can transform public perception and outcomes of government projects.'
+      excerpt: 'Why the next decade of Indian growth depends on risk-sharing between the government and developers. Drawing from my experience as Director General of the Infrastructure War Room and now as MD of Hazoor Multi Projects Ltd.'
     },
     {
-      title: 'Sustainable Urban Planning: Balancing Growth with Environment',
-      date: 'November 10, 2024',
+      title: 'Beyond the Samruddhi Mahamarg: Scaling India\'s Expressway Grid',
+      date: 'November 20, 2025',
+      readTime: '9 min read',
+      category: 'Infrastructure',
+      excerpt: 'Lessons from the 701-km project and how it serves as a blueprint for the proposed Pune-Bangalore and Nagpur-Goa corridors. The MSRDC modernization we achieved—e-tendering and e-monitoring systems that cut delays by 40%—is now being replicated nationwide.'
+    },
+    {
+      title: 'AI in Land Acquisition: Minimizing Litigation through Digital Mapping',
+      date: 'September 5, 2025',
       readTime: '7 min read',
-      category: 'Urban Development',
-      excerpt: 'Exploring frameworks for city development that prioritize both economic growth and environmental sustainability.'
-    },
-    {
-      title: 'The Role of Technology in Modern Administration',
-      date: 'October 22, 2024',
-      readTime: '5 min read',
       category: 'Technology',
-      excerpt: 'Digital transformation in government services: challenges faced, solutions implemented, and the road ahead.'
+      excerpt: 'How we used drone surveys and digital records to acquire 10,000 hectares with zero major protests. The War Room approach to rapid execution meets cutting-edge technology.'
     },
     {
-      title: 'Rural Connectivity: The Foundation of Agricultural Prosperity',
-      date: 'October 5, 2024',
+      title: 'The Seven Extensions: A Reflection on Public Duty',
+      date: 'June 10, 2025',
       readTime: '6 min read',
-      category: 'Rural Development',
-      excerpt: 'How improving road connectivity to agricultural markets can double farmer incomes and transform rural economies.'
-    },
-    {
-      title: 'Mentoring the Next Generation of Civil Servants',
-      date: 'September 18, 2024',
-      readTime: '4 min read',
       category: 'Leadership',
-      excerpt: 'Reflections on what it takes to succeed in public service and advice for young IAS officers beginning their journey.'
+      excerpt: 'A personal look at why I chose to stay in public service for five years after retirement to see the Samruddhi project to the finish line—and how that commitment now informs my leadership at Hazoor Multi Projects.'
     },
     {
-      title: 'Public-Private Partnerships: Finding the Right Balance',
-      date: 'September 1, 2024',
+      title: 'Life After IAS: The Private Sector Transition',
+      date: 'April 22, 2025',
+      readTime: '8 min read',
+      category: 'Leadership',
+      excerpt: 'From government regulator to corporate leader—reflections on the first year as Managing Director of Hazoor Multi Projects Ltd, and how four decades of public service experience shapes private infrastructure delivery.'
+    },
+    {
+      title: 'MSRDC Modernization: Building Systems That Outlast Tenure',
+      date: 'February 15, 2025',
       readTime: '7 min read',
-      category: 'Policy',
-      excerpt: 'Key considerations for structuring PPP projects that serve public interest while attracting private investment.'
+      category: 'Governance',
+      excerpt: 'The e-tendering and e-monitoring systems we introduced at MSRDC reduced administrative delays by 40%. Here is how to build institutional capacity that endures beyond any single administrator.'
     },
   ]
 
@@ -65,11 +65,11 @@ const Blog = () => {
     'All',
     'Infrastructure',
     'Governance',
-    'Urban Development',
-    'Rural Development',
-    'Policy',
     'Technology',
-    'Leadership'
+    'Leadership',
+    'Policy',
+    'Urban Development',
+    'Rural Development'
   ]
 
   return (
@@ -91,29 +91,9 @@ const Blog = () => {
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
                 Reflections on governance, infrastructure, leadership, and the lessons 
-                learned from three decades in public service.
+                learned from four decades of experience across public and private sectors.
               </p>
             </motion.div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Categories */}
-      <section className="py-8 bg-cream-100 border-y border-cream-200">
-        <Container>
-          <div className="flex flex-wrap justify-center gap-3">
-            {categories.map((category) => (
-              <button
-                key={category}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                  category === 'All'
-                    ? 'bg-gold-500 text-navy-900'
-                    : 'bg-cream-200 text-gray-700 hover:bg-cream-100'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
           </div>
         </Container>
       </section>
@@ -131,8 +111,8 @@ const Blog = () => {
               <div className="grid lg:grid-cols-2">
                 <div className="aspect-video lg:aspect-auto overflow-hidden">
                   <img
-                    src={infrastructureImage}
-                    alt="The Future of Infrastructure: Lessons from Samruddhi Mahamarg"
+                    src={warRoomImage}
+                    alt="The Corporate Pivot: Applying 'War Room' Tactics to Private Infrastructure"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -221,12 +201,6 @@ const Blog = () => {
             ))}
           </div>
 
-          {/* Load More */}
-          <div className="text-center mt-12">
-            <button className="px-8 py-3 border-2 border-gold-500 text-gold-600 font-semibold rounded-lg hover:bg-gold-500 hover:text-navy-900 transition-all duration-300">
-              Load More Articles
-            </button>
-          </div>
         </Container>
       </section>
 

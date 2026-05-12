@@ -2,6 +2,8 @@ import { motion } from 'framer-motion'
 import Container from '../components/Container'
 import SectionHeading from '../components/SectionHeading'
 import { Mail, Phone, MapPin, Linkedin, Twitter, Send, Clock, Globe } from 'lucide-react'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import 'leaflet/dist/leaflet.css'
 
 const Contact = () => {
   const contactInfo = [
@@ -14,19 +16,19 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Phone',
-      value: '+91 (22) 1234 5678',
-      href: 'tel:+912212345678'
+      value: '+91 22 2XXX XXXX',
+      href: null
     },
     {
       icon: MapPin,
       title: 'Office',
-      value: 'Mumbai, Maharashtra, India',
-      href: '#'
+      value: 'Hazoor Multi Projects Ltd, Mumbai, Maharashtra, India',
+      href: null
     },
     {
       icon: Clock,
       title: 'Availability',
-      value: 'Mon - Fri, 10:00 AM - 5:00 PM IST',
+      value: 'Mon – Fri | 10:00 AM – 6:00 PM IST',
       href: null
     },
   ]
@@ -36,13 +38,13 @@ const Contact = () => {
       icon: Linkedin,
       title: 'LinkedIn',
       href: '#',
-      description: 'Professional updates and articles'
+      description: 'Connect for professional inquiries and infrastructure discourse'
     },
     {
       icon: Twitter,
-      title: 'Twitter',
+      title: 'Twitter/X',
       href: '#',
-      description: 'Thoughts on governance and policy'
+      description: 'Active in official government-tagged discussions on Maharashtra infrastructure'
     },
   ]
 
@@ -61,11 +63,11 @@ const Contact = () => {
                 Contact
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-navy-900 mb-6">
-                Let\'s Start a <span className="text-gold-500">Conversation</span>
+                Connect with Radheshyam Mopalwar
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
-                Whether you have questions about my work, seek mentorship, or wish to 
-                discuss potential collaborations, I welcome your message.
+                Strategic Advisory on Infrastructure, Governance, and Nation-Building.
+                Available for consulting, high-level policy advisory, and mentorship.
               </p>
             </motion.div>
           </div>
@@ -151,12 +153,11 @@ const Contact = () => {
                     className="w-full px-4 py-3 bg-cream-100 border border-cream-200 rounded-lg text-navy-900 focus:outline-none focus:border-gold-500 transition-colors appearance-none cursor-pointer"
                   >
                     <option value="">Select a topic</option>
-                    <option value="general">General Inquiry</option>
-                    <option value="collaboration">Collaboration Opportunity</option>
-                    <option value="mentorship">Mentorship Request</option>
-                    <option value="media">Media/Press</option>
-                    <option value="speaking">Speaking Engagement</option>
-                    <option value="other">Other</option>
+                    <option value="infrastructure">Infrastructure Strategy Consulting</option>
+                    <option value="governance">Corporate Governance</option>
+                    <option value="ppp">PPP (Public-Private Partnership) Advisory</option>
+                    <option value="mentorship">Mentorship for Civil Service Aspirants</option>
+                    <option value="speaking">Speaking Engagements (Global Infra Summits)</option>
                   </select>
                 </div>
 
@@ -223,11 +224,11 @@ const Contact = () => {
                   <h3 className="text-navy-900 font-semibold">Response Policy</h3>
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                  I aim to respond to all inquiries within 48 hours. For mentorship requests, 
-                  please include details about your background and specific areas where you seek guidance.
+                  Response Time: 48–72 hours for verified professional inquiries.
+                  Please include details about your organization and specific areas where you seek guidance.
                 </p>
                 <p className="text-gray-500 text-sm">
-                  Note: While I review every message, due to volume, I may not be able to respond to every inquiry personally.
+                  Note: Available for strategic consulting, high-level policy advisory, and mentorship.
                 </p>
               </div>
             </motion.div>
@@ -235,7 +236,7 @@ const Contact = () => {
         </Container>
       </section>
 
-      {/* Map Placeholder */}
+      {/* Map */}
       <section className="py-24 md:py-32 bg-cream-100">
         <Container>
           <SectionHeading
@@ -249,16 +250,38 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="aspect-video bg-cream-200 rounded-2xl overflow-hidden"
+            className="aspect-video rounded-2xl overflow-hidden shadow-xl"
           >
-            <div className="w-full h-full bg-gradient-to-br from-cream-100 to-cream-200 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="mx-auto text-gold-500/50 mb-4" size={60} />
-                <p className="text-gray-600">Mumbai, Maharashtra, India</p>
-                <p className="text-gray-500 text-sm mt-2">Map placeholder</p>
-              </div>
-            </div>
+            <MapContainer
+              center={[18.925034, 72.824555]}
+              zoom={13}
+              className="w-full h-full"
+              style={{ zIndex: 1 }}
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <Marker position={[18.925034, 72.824555]}>
+                <Popup>
+                  <div className="text-center">
+                    <p className="font-semibold text-navy-900">Hazoor Multi Projects Ltd</p>
+                    <p className="text-sm text-gray-600">Nariman Point, Mumbai</p>
+                  </div>
+                </Popup>
+              </Marker>
+            </MapContainer>
           </motion.div>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="text-center mt-6 text-navy-900 font-semibold text-lg"
+          >
+            Hazoor Multi Projects Limited
+          </motion.p>
         </Container>
       </section>
     </div>

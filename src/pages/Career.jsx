@@ -2,102 +2,104 @@ import { motion } from 'framer-motion'
 import Container from '../components/Container'
 import SectionHeading from '../components/SectionHeading'
 import Card from '../components/Card'
+import CareerTimeline from '../components/CareerTimeline'
 import { MapPin, Calendar, Building, Award } from 'lucide-react'
 
 const Career = () => {
   const positions = [
     {
-      period: '2015 - 2024',
-      title: 'Vice Chairman & Managing Director',
-      organization: 'MSRDC, Government of Maharashtra',
+      period: '2024 - Present',
+      title: 'Chairman & Managing Director',
+      organization: 'Hazoor Multi Projects Ltd.',
+      location: 'Corporate Leadership',
+      description: 'Bringing decades of public infrastructure expertise to the private sector, leading major infrastructure and construction projects.',
+      achievements: [
+        'Leading corporate infrastructure initiatives',
+        'Translating public sector expertise to private projects',
+        'Driving sustainable development practices',
+      ]
+    },
+    {
+      period: '2015 - 2023',
+      title: 'VC & MD, MSRDC & DG, War Room',
+      organization: 'Government of Maharashtra',
       location: 'Mumbai, Maharashtra',
-      description: 'Led Maharashtra State Road Development Corporation, overseeing the planning, execution, and management of the state\'s largest infrastructure projects including the Samruddhi Mahamarg Expressway.',
+      description: 'Architect of the ₹55,000 Cr Samruddhi Mahamarg. Managed the Chief Minister\'s Infrastructure War Room, overseeing Metro, Coastal Road, and MTHL. Officially retired in February 2018 but served a record seven contractual extensions through late 2023 due to indispensable execution skills.',
       achievements: [
         'Delivered ₹55,000 Cr Samruddhi Mahamarg project',
-        'Modernized MSRDC with digital transformation',
-        'Secured Prime Minister\'s Award for Excellence in Public Administration',
+        'Directed Chief Minister\'s Infrastructure War Room',
+        'Oversaw Metro, Coastal Road, and MTHL projects',
+        'Served seven post-retirement extensions (2018-2023)',
       ]
     },
     {
       period: '2010 - 2015',
-      title: 'Principal Secretary',
-      organization: 'Public Works Department',
-      location: 'Mantralaya, Mumbai',
-      description: 'Directed policy formulation and implementation for the state\'s public works, managing a portfolio of over 200 major infrastructure projects worth ₹80,000+ Crores.',
+      title: 'Member Secretary',
+      organization: 'Maharashtra Pollution Control Board (MPCB)',
+      location: 'Mumbai, Maharashtra',
+      description: 'Served as Member Secretary of MPCB and held various Secretary-level positions, contributing to environmental policy and administrative leadership.',
       achievements: [
-        'Streamlined project approval processes reducing timelines by 40%',
-        'Introduced quality assurance protocols across all PWD projects',
-        'Launched sustainable construction guidelines',
+        'Led environmental policy initiatives',
+        'Managed regulatory compliance frameworks',
+        'Strengthened pollution control measures',
       ]
     },
     {
-      period: '2005 - 2010',
-      title: 'Divisional Commissioner',
-      organization: 'Nagpur Division',
-      location: 'Nagpur, Maharashtra',
-      description: 'Administrative head of Nagpur Division, coordinating development activities across six districts and implementing central and state government schemes.',
-      achievements: [
-        'Spearheaded Vidarbha development initiatives',
-        'Improved inter-district coordination mechanisms',
-        'Enhanced grievance redressal systems',
-      ]
-    },
-    {
-      period: '2000 - 2005',
+      period: '2005 - 2009',
       title: 'District Collector',
-      organization: 'Multiple Districts',
-      location: 'Maharashtra',
-      description: 'Served as District Magistrate and Collector in three districts, managing law & order, revenue administration, and development programs.',
+      organization: 'Nanded District',
+      location: 'Nanded, Maharashtra',
+      description: 'Led the "Nanded City Transformation" project for the 300th anniversary of Guru-ta-Gaddi (2008), a landmark event that transformed the city\'s infrastructure and administration.',
       achievements: [
-        'Implemented successful watershed development programs',
-        'Reformed land record management systems',
-        'Pioneered e-governance initiatives at district level',
+        'Spearheaded Nanded City Transformation project',
+        'Managed infrastructure for Guru-ta-Gaddi 300th anniversary (2008)',
+        'Delivered comprehensive urban development initiative',
       ]
     },
     {
-      period: '1995 - 2000',
-      title: 'Sub-Divisional Officer',
-      organization: 'Revenue Department',
-      location: 'Various Postings',
-      description: 'Managed sub-divisional administration, land revenue collection, and implementation of government welfare schemes at the grassroots level.',
+      period: '1995 - 2005',
+      title: 'IAS Officer & District Collector',
+      organization: 'Government of Maharashtra',
+      location: 'Maharashtra',
+      description: 'Formally inducted into the 1995 IAS batch. Served as Collector of Hingoli and held positions in the IT Department, managing district administration and technology initiatives.',
       achievements: [
-        'Achieved 95% tax collection efficiency',
-        'Streamlined certificate issuance processes',
-        'Improved public service delivery in rural areas',
+        'Inducted into 1995 IAS batch',
+        'Served as Collector of Hingoli',
+        'Contributed to IT Department initiatives',
       ]
     },
     {
-      period: '1989 - 1995',
-      title: 'Assistant Collector',
-      organization: 'Training & Field Postings',
+      period: '1983 - 1995',
+      title: 'Deputy Collector',
+      organization: 'Maharashtra State Civil Services',
       location: 'Maharashtra',
-      description: 'Initial years in service involving district training, attachment to various departments, and understudy to senior officers.',
+      description: 'Joined Maharashtra State Service as a Deputy Collector. Was a social activist before joining government. Also trained as a Revenue and Land Law expert.',
       achievements: [
-        'Completed district training with distinction',
-        'Authored policy papers on rural development',
-        'Received commendation for disaster management response',
+        'Joined state civil services as Deputy Collector (1983)',
+        'Built foundation in revenue and land law',
+        'Contributed as social activist before government service',
       ]
     },
   ]
 
   const education = [
     {
-      degree: 'Masters in Public Administration',
+      degree: 'Executive Program in Public Policy',
       institution: 'Harvard Kennedy School',
       year: '2003',
-      description: 'Specialized in infrastructure policy and urban development.'
+      description: 'Executive education for senior IAS cadre in public administration and policy.'
     },
     {
-      degree: 'MBA (Finance)',
-      institution: 'Faculty of Management Studies, Delhi',
-      year: '1987',
-      description: 'Graduated with distinction, specializing in public sector management.'
+      degree: 'Administrative Training',
+      institution: 'Lal Bahadur Shastri National Academy of Administration (LBSNAA)',
+      year: '1995',
+      description: 'Professional training at India\'s premier civil services academy in Mussoorie.'
     },
     {
-      degree: 'B.Tech (Civil Engineering)',
-      institution: 'IIT Bombay',
-      year: '1985',
-      description: 'Foundation in technical aspects of infrastructure development.'
+      degree: 'Bachelor\'s Degree (Arts/Law)',
+      institution: 'University Degree',
+      year: 'Pre-1982',
+      description: 'Academic background in Social Sciences with expertise in Revenue and Land Law.'
     },
   ]
 
@@ -153,12 +155,25 @@ const Career = () => {
         </Container>
       </section>
 
-      {/* Career Timeline */}
+      {/* Interactive Career Timeline */}
       <section className="py-24 md:py-32 bg-cream-50">
         <Container>
           <SectionHeading
-            title="Positions Held"
-            subtitle="Key roles and responsibilities throughout my career in the Indian Administrative Service."
+            title="40-Year Career Journey"
+            subtitle="An interactive timeline documenting key milestones from 1982 to Present, showcasing the evolution from IRS to IAS and beyond."
+            centered
+          />
+
+          <CareerTimeline />
+        </Container>
+      </section>
+
+      {/* Detailed Positions */}
+      <section className="py-24 md:py-32 bg-cream-100">
+        <Container>
+          <SectionHeading
+            title="Detailed Positions"
+            subtitle="Comprehensive overview of roles and responsibilities throughout my career in the Indian Administrative Service."
             centered
           />
 
@@ -174,7 +189,7 @@ const Career = () => {
                 >
                   <Card className="relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-1 h-full bg-gold-500" />
-                    
+
                     <div className="flex flex-col md:flex-row md:items-start gap-6">
                       <div className="md:w-48 flex-shrink-0">
                         <span className="inline-flex items-center gap-2 px-3 py-1 bg-gold-500/10 text-gold-600 text-sm font-medium rounded-full">
@@ -182,7 +197,7 @@ const Career = () => {
                           {position.period}
                         </span>
                       </div>
-                      
+
                       <div className="flex-grow">
                         <h3 className="text-xl font-semibold text-navy-900 mb-2">{position.title}</h3>
                         <div className="flex flex-wrap items-center gap-4 text-gray-600 text-sm mb-4">
@@ -196,13 +211,13 @@ const Career = () => {
                           </span>
                         </div>
                         <p className="text-gray-600 mb-4 leading-relaxed">{position.description}</p>
-                        
+
                         <div className="bg-cream-50 rounded-lg p-4">
                           <h4 className="text-gold-600 text-sm font-medium mb-2">Key Achievements</h4>
                           <ul className="space-y-1">
                             {position.achievements.map((achievement) => (
                               <li key={achievement} className="flex items-start gap-2 text-gray-600 text-sm">
-                                <div className="w-1 h-1 bg-gold-500 rounded-full mt-2 flex-shrink-0" />
+                                <div className="w-1 h-1 bg-gold-500 rounded-full mt-2 shrink-0" />
                                 {achievement}
                               </li>
                             ))}

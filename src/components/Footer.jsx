@@ -3,7 +3,7 @@ import { Linkedin, Twitter, Mail } from 'lucide-react'
 import Container from './Container'
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear()
+  const currentYear = 2026
 
   const footerLinks = [
     {
@@ -41,8 +41,14 @@ const Footer = () => {
                   <span className="text-gold-500 text-sm uppercase tracking-wider">IAS Retd.</span>
                 </div>
               </div>
+              <div className="mb-2">
+                <span className="text-gold-600 text-xs uppercase tracking-wider font-semibold">Current Positions (2026)</span>
+              </div>
+              <p className="text-navy-900 font-medium text-sm mb-4">
+                CMD, Hazoor Multi Projects Ltd • Chairman, Modern Engineering & Projects Ltd
+              </p>
               <p className="text-gray-600 max-w-md mb-6 leading-relaxed">
-                Distinguished civil servant with over three decades of exemplary service in the Indian Administrative Service. Committed to nation-building through transformative infrastructure and governance.
+                Radheshyam Mopalwar (IAS Retd., 1995 Batch, Maharashtra Cadre) — Over 40 years of experience from IRS (1982) to State Service (1983-1995) to IAS leadership. Former DG of the CM's Infrastructure War Room with record 7 post-retirement extensions (2018-2023). Architect of the ₹55,000 Cr Samruddhi Mahamarg. Now leading private infrastructure development from Nariman Point, Mumbai.
               </p>
               <div className="flex gap-4">
                 <a 
@@ -96,10 +102,10 @@ const Footer = () => {
         <div className="border-t border-cream-200 py-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-gray-500 text-sm">
-              © {currentYear} Radheshyam Mopalwar. All rights reserved.
+              © 2026 Radheshyam Mopalwar • CMD, Hazoor Multi Projects Ltd • Chairman, Modern Engineering & Projects Ltd • Nariman Point, Mumbai
             </p>
             <p className="text-gray-500 text-sm">
-              Designed with excellence in mind
+              1995-Batch IAS (Retd.) • Maharashtra Cadre
             </p>
           </div>
         </div>

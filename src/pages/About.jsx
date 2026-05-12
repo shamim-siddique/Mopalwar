@@ -31,29 +31,34 @@ const About = () => {
 
   const timeline = [
     {
-      year: '1989',
-      title: 'Joined IAS',
-      description: 'Began civil service career after graduating with top honors from the Lal Bahadur Shastri National Academy of Administration.'
+      year: '1983–1995',
+      title: 'Maharashtra State Service',
+      description: 'Began his career in the Maharashtra State Service as a Deputy Collector, building a foundation in grassroots administration and local governance.'
     },
     {
       year: '1995',
-      title: 'District Collector',
-      description: 'First posting as District Collector, implementing transformative rural development programs.'
+      title: 'Joined IAS',
+      description: 'Having served as a Deputy Collector since 1983, he was formally inducted into the Indian Administrative Service (IAS) as part of the 1995 batch.'
     },
     {
-      year: '2005',
-      title: 'Principal Secretary',
-      description: 'Elevated to Principal Secretary role, overseeing major infrastructure departments.'
+      year: '2005–2009',
+      title: 'Collector of Nanded',
+      description: 'Led the complete infrastructure overhaul of Nanded city for the Guru-ta-Gaddi celebrations, a landmark project in urban renewal.'
     },
     {
       year: '2015',
       title: 'VC & MD, MSRDC',
-      description: 'Appointed Vice Chairman & Managing Director of Maharashtra State Road Development Corporation.'
+      description: 'Appointed to lead the Maharashtra State Road Development Corporation. Successfully executed the 701-km Samruddhi Mahamarg—India\'s fastest-built mega expressway.'
     },
     {
-      year: '2024',
-      title: 'Retirement',
-      description: 'Retired after 35 years of distinguished service, leaving behind a legacy of transformative projects.'
+      year: '2018–2023',
+      title: 'Post-Retirement Leadership',
+      description: 'Following official retirement in February 2018, the State Government granted a record seven extensions to oversee flagship projects and lead the CM\'s Infrastructure War Room.'
+    },
+    {
+      year: '2024–Present',
+      title: 'Corporate Leadership',
+      description: 'Transitioned to corporate leadership as Managing Director of Hazoor Multi Projects Ltd, a listed infrastructure company, bringing War Room execution models to private sector delivery.'
     },
   ]
 
@@ -75,7 +80,7 @@ const About = () => {
                 A Life Dedicated to <span className="text-gold-500">Public Service</span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
-                Three and a half decades of unwavering commitment to nation-building through 
+                Four decades of unwavering commitment to nation-building through 
                 effective governance, transformative infrastructure, and inclusive development.
               </p>
             </motion.div>
@@ -109,16 +114,16 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             >
               <h2 className="text-3xl md:text-4xl font-semibold text-navy-900 mb-6">
-                Radheshyam Mopalwar
+                Radheshyam Mopalwar (IAS Retd.)
               </h2>
-              <p className="text-gold-500 text-lg mb-6">IAS Officer (1989-2024)</p>
+              <p className="text-gold-500 text-lg mb-6">A Legacy of Transformative Infrastructure</p>
               
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  Born with a deep-rooted desire to serve the nation, I embarked on my journey in the 
-                  Indian Administrative Service in 1989. Over the past 35 years, I have had the privilege 
-                  of serving in various capacities across Maharashtra, each role offering unique opportunities 
-                  to contribute to the state\'s development.
+                  With over four decades of administrative and corporate experience, Radheshyam Mopalwar is recognized as the chief architect
+                  behind Maharashtra's modern infrastructure. A member of the 1995-batch IAS, his career has been
+                  defined by a "zero-tolerance" approach to project delays and a mastery of complex land acquisition and project financing.
+                  As Director General of the Infrastructure War Room under the Chief Minister, he pioneered rapid execution models that transformed project delivery.
                 </p>
                 <p>
                   My career has been defined by a focus on infrastructure development, recognizing that 
@@ -132,17 +137,17 @@ const About = () => {
                   The ultimate goal has always been to make government more responsive and accessible to citizens.
                 </p>
                 <p>
-                  As I transition into this new phase of life, I remain committed to sharing my experiences 
-                  and insights with the next generation of civil servants and contributing to policy discourse 
-                  in whatever capacity I can.
+                  As Managing Director of Hazoor Multi Projects Ltd, I now bring four decades of public sector expertise 
+                  to private infrastructure delivery. I remain committed to sharing my experiences and insights with the 
+                  next generation of civil servants and contributing to policy discourse in whatever capacity I can.
                 </p>
               </div>
 
               <div className="mt-8 pt-8 border-t border-cream-200">
                 <div className="grid grid-cols-2 gap-6">
                   <div>
-                    <p className="text-gold-500 text-3xl font-semibold">35+</p>
-                    <p className="text-gray-600">Years of Service</p>
+                    <p className="text-gold-500 text-3xl font-semibold">40+</p>
+                    <p className="text-gray-600">Years of Experience</p>
                   </div>
                   <div>
                     <p className="text-gold-500 text-3xl font-semibold">15+</p>
@@ -191,7 +196,7 @@ const About = () => {
         <Container>
           <SectionHeading
             title="Career Journey"
-            subtitle="Key milestones from the beginning of my civil service journey to retirement."
+            subtitle="Key milestones from the beginning of his civil service journey to the present."
             centered
           />
 

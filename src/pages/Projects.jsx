@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Container from '../components/Container'
 import SectionHeading from '../components/SectionHeading'
 import Card from '../components/Card'
+import ProjectGallery from '../components/ProjectGallery'
 import { ArrowRight, Building2, Route, TreePine, Train, Droplets } from 'lucide-react'
 import samruddhiImage from '../assets/images/Samruddhi Mahamarg.png'
 
@@ -20,56 +21,56 @@ const Projects = () => {
       { value: '₹55,000 Cr', label: 'Investment' },
     ],
     highlights: [
+      'Created 24 "Krushi Samruddhi Kendras" (New Townships) to boost rural economy',
+      '10,000 hectares of land acquired without a single major protest',
       'First expressway with 5-layered safety systems',
       'Integrated utility corridor along entire route',
-      'Smart traffic management with AI integration',
-      '24 agricultural nodes for farmer connectivity',
     ]
   }
 
   const otherProjects = [
     {
-      title: 'Coastal Road Project',
+      title: 'Versova-Bandra Sea Link',
       category: 'Urban Infrastructure',
       icon: Route,
-      description: '29.2 km coastal freeway connecting Marine Lines to Kandivali, featuring undersea tunnels and interchanges.',
-      impact: 'Reduced congestion by 60% in western Mumbai'
+      description: 'Extending Mumbai\'s sea-link connectivity northward with the Versova-Bandra Sea Link (VBSL) project.',
+      impact: 'Critical northward extension of coastal connectivity'
     },
     {
-      title: 'Green City Initiative',
-      category: 'Sustainability',
-      icon: TreePine,
-      description: 'Urban greening project across 15 cities with 2 million+ tree plantations and smart irrigation systems.',
-      impact: '15% improvement in air quality indices'
+      title: 'Mumbai-Pune Missing Link',
+      category: 'Tunnel Engineering',
+      icon: Route,
+      description: 'Massive tunneling project to bypass the Khandala ghat section, featuring one of the world\'s widest tunnels.',
+      impact: 'Eliminates traffic bottlenecks in the Sahyadri Ghats'
     },
     {
-      title: 'Metro Expansion Phase III',
-      category: 'Public Transit',
-      icon: Train,
-      description: 'Extended metro connectivity to suburbs and satellite towns with 12 new lines and 150+ stations.',
-      impact: '2 million daily passengers served'
+      title: 'Thane Creek Bridge-3',
+      category: 'Bridge Infrastructure',
+      icon: Route,
+      description: 'A vital bridge project to decongest the entry gateway between Mumbai and Navi Mumbai.',
+      impact: 'Expanding connectivity to the mainland'
     },
     {
-      title: 'Water Security Program',
-      category: 'Water Resources',
-      icon: Droplets,
-      description: 'Integrated water management system with 12 new dams, pipeline networks, and purification plants.',
-      impact: 'Clean water access to 5 million households'
+      title: 'Pune Ring Road',
+      category: 'Highway Development',
+      icon: Route,
+      description: 'Planned 128-km circular highway around Pune to enable seamless inter-city traffic movement.',
+      impact: 'Planned 128-km corridor for decongestion'
     },
     {
-      title: 'MSRDC Modernization',
-      category: 'Institutional Reform',
+      title: 'Infrastructure War Room',
+      category: 'Inter-Agency Coordination',
       icon: Building2,
-      description: 'Digital transformation of Maharashtra State Road Development Corporation with e-tendering and project monitoring.',
-      impact: '40% reduction in project delays'
+      description: 'As Director General of the Infrastructure War Room, monitored and fast-tracked major projects across agencies.',
+      impact: 'Fast-tracked Atal Setu (MTHL) and Mumbai Metro corridors'
     },
   ]
 
   const impactStats = [
-    { value: '₹1.2 Lakh Cr', label: 'Total Investment Mobilized' },
-    { value: '2,500+ km', label: 'Roads & Highways Built' },
-    { value: '50+', label: 'Bridges & Flyovers' },
-    { value: '15M+', label: 'Lives Positively Impacted' },
+    { value: '₹1.2 Lakh Cr', label: 'Total Project Value Managed' },
+    { value: '700+ km', label: 'Greenfield Expressways' },
+    { value: '10,000', label: 'Hectares Land Acquired' },
+    { value: '1,000+ km', label: 'Planned Corridors' },
   ]
 
   return (
@@ -165,14 +166,27 @@ const Projects = () => {
               </div>
 
               <div className="min-h-[400px] flex items-center justify-center rounded-2xl overflow-hidden">
-                <img 
-                  src={samruddhiImage} 
-                  alt="Samruddhi Mahamarg Visualization" 
+                <img
+                  src={samruddhiImage}
+                  alt="Samruddhi Mahamarg Visualization"
                   className="max-w-full max-h-full object-contain"
                 />
               </div>
             </div>
           </motion.div>
+        </Container>
+      </section>
+
+      {/* Visual Project Gallery */}
+      <section className="py-24 md:py-32 bg-cream-100">
+        <Container>
+          <SectionHeading
+            title="Project Gallery"
+            subtitle="Explore the Samruddhi Mahamarg and other flagship infrastructure projects through this visual showcase."
+            centered
+          />
+
+          <ProjectGallery />
         </Container>
       </section>
 
@@ -229,10 +243,9 @@ const Projects = () => {
                 Project Philosophy
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                Every project undertaken followed a clear set of principles: stakeholder consultation, 
-                environmental sustainability, cost-effectiveness, and above all, serving the public good. 
-                Infrastructure is not just about concrete and steel—it\'s about connecting people, 
-                enabling opportunities, and building a better future.
+                "Infrastructure is about more than concrete; it's about the speed of execution. 
+                We replaced traditional delays with a 'War Room' approach, ensuring that land 
+                acquisition and financing were completed before the first shovel hit the ground."
               </p>
               <Link
                 to="/achievements"

@@ -4,6 +4,8 @@ import { ArrowRight, Award, Building2, Users, Clock } from 'lucide-react'
 import Container from '../components/Container'
 import SectionHeading from '../components/SectionHeading'
 import Card from '../components/Card'
+import PressMedia from '../components/PressMedia'
+import ResourcesHub from '../components/ResourcesHub'
 import profileImage from '../assets/images/Mopalwar.png'
 import nagpurExpressHighway from '../assets/images/Nagpur-Express_Highway.png'
 import legacyServiceImage from '../assets/images/Legacy-Service.png'
@@ -12,27 +14,27 @@ const Home = () => {
   const highlights = [
     {
       icon: Clock,
-      value: '35+',
-      label: 'Years of Service',
-      description: 'Exemplary dedication to public administration'
+      value: '40+',
+      label: 'Years',
+      description: 'Administrative & Corporate Leadership (1983–Present)'
     },
     {
       icon: Award,
-      value: '200+',
-      label: 'Projects Delivered',
-      description: 'Transformative infrastructure initiatives'
+      value: 'Flagship',
+      label: 'Mega-Projects',
+      description: 'High-impact infrastructure leadership at scale'
     },
     {
       icon: Building2,
-      value: '₹50K+',
-      label: 'Cr. Investment',
-      description: 'Infrastructure value created for the state'
+      value: '₹1.2 Lakh',
+      label: 'Cr+ Investment',
+      description: 'Total project value overseen as DG, War Room'
     },
     {
       icon: Users,
       value: '10M+',
       label: 'Lives Impacted',
-      description: 'Direct beneficiaries of key projects'
+      description: 'Through the Mumbai-Nagpur economic corridor'
     },
   ]
 
@@ -49,22 +51,22 @@ const Home = () => {
 
   const latestUpdates = [
     {
-      date: 'Dec 2024',
-      title: 'Reflecting on Three Decades of Public Service',
-      excerpt: 'Key lessons learned and the path forward for Indian governance.',
-      category: 'Reflection'
+      date: 'May 2026',
+      title: 'Transitioning Excellence: From Public Service to Corporate Infrastructure Leadership',
+      excerpt: 'Reflecting on my new role at Hazoor Multi Projects and the future of private-public partnerships in infrastructure.',
+      category: 'Career'
     },
     {
-      date: 'Nov 2024',
-      title: 'Infrastructure as the Foundation of Growth',
-      excerpt: 'How strategic investments in connectivity drive economic transformation.',
-      category: 'Insights'
+      date: 'March 2026',
+      title: "The 'War Room' Model: How to eliminate project delays in India",
+      excerpt: 'Lessons from my tenure as Director General of the Infrastructure War Room on accelerating project execution.',
+      category: 'Governance'
     },
     {
-      date: 'Oct 2024',
-      title: 'Building Sustainable Cities for Tomorrow',
-      excerpt: 'Urban planning approaches that balance development with environmental stewardship.',
-      category: 'Urban Development'
+      date: 'Feb 2026',
+      title: 'Scaling Sustainable Corridors: Beyond the Samruddhi Mahamarg',
+      excerpt: 'How the success of the Mumbai-Nagpur expressway can inform future greenfield corridor development.',
+      category: 'Infrastructure'
     },
   ]
 
@@ -192,11 +194,12 @@ const Home = () => {
             >
               <SectionHeading
                 title="A Legacy of Service"
-                subtitle="Three and a half decades of dedicated public service, shaping Maharashtra\'s infrastructure landscape and transforming lives."
+                subtitle="Four decades of dedicated service, shaping Maharashtra\'s infrastructure landscape and transforming lives through high-speed connectivity."
               />
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                Throughout my career in the Indian Administrative Service, I have been driven by a singular vision: 
-                to create lasting positive change through effective governance and strategic infrastructure development.
+                Throughout a career spanning four decades, I have been driven by a singular vision: 
+                to redefine the speed of infrastructure execution in India. From my landmark role in the Samruddhi Mahamarg 
+                to strategic leadership in the CM's Infrastructure War Room, my work has focused on high-speed connectivity as a tool for social equity.
               </p>
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
                 From leading Maharashtra\'s largest expressway project to implementing innovative urban development 
@@ -226,8 +229,8 @@ const Home = () => {
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-gold-500 text-navy-900 p-6 rounded-lg shadow-xl">
-                <p className="font-semibold text-lg">Est. 1989</p>
-                <p className="text-sm">Joined IAS</p>
+                <p className="font-semibold text-lg">Serving since 1983</p>
+                <p className="text-sm">1995 Batch, IAS</p>
               </div>
             </motion.div>
           </div>
@@ -310,14 +313,13 @@ const Home = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                className="relative overflow-hidden"
+                className="relative flex items-center justify-center"
               >
                 <img
                   src={nagpurExpressHighway}
                   alt="Samruddhi Mahamarg - Mumbai-Nagpur Expressway"
-                  className="w-full h-full object-cover"
+                  className="w-full h-auto object-contain"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/20 to-transparent" />
               </motion.div>
             </div>
           </div>
@@ -368,6 +370,32 @@ const Home = () => {
         </Container>
       </section>
 
+      {/* Press & Media Section */}
+      <section className="py-24 md:py-32 bg-cream-50">
+        <Container>
+          <SectionHeading
+            title="Press & Media"
+            subtitle="Featured coverage, interviews, and insights from leading publications on infrastructure and governance."
+            centered
+          />
+
+          <PressMedia />
+        </Container>
+      </section>
+
+      {/* Resources Hub Section */}
+      <section className="py-24 md:py-32 bg-cream-100">
+        <Container>
+          <SectionHeading
+            title="Policy & Resource Hub"
+            subtitle="Downloadable policy documents, strategy frameworks, and technical reports from my tenure."
+            centered
+          />
+
+          <ResourcesHub />
+        </Container>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 md:py-32 bg-cream-50">
         <Container>
@@ -379,10 +407,10 @@ const Home = () => {
             className="max-w-3xl mx-auto text-center"
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-navy-900 mb-6">
-              Let\'s Build Something <span className="text-gold-500">Meaningful</span> Together
+              Let's Build Something <span className="text-gold-500">Meaningful</span> Together
             </h2>
             <p className="text-gray-600 text-lg mb-10 leading-relaxed">
-              Whether you seek mentorship, collaboration on public initiatives, or wish to discuss 
+              Whether you seek mentorship, collaboration on public initiatives, or wish to discuss
               transformative governance approaches, I welcome the conversation.
             </p>
             <Link

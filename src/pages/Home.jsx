@@ -157,9 +157,6 @@ const Home = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-
-                {/* Decorative dot */}
-                <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-gold-500 rounded-full" />
               </div>
             </motion.div>
           </div>

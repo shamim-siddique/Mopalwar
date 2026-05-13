@@ -1,8 +1,13 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Container from '../components/Container'
 import SectionHeading from '../components/SectionHeading'
 import Card from '../components/Card'
 import { Award, Trophy, Star, Medal, FileText, Briefcase } from 'lucide-react'
+import mopalwarPic2 from '../assets/images/Mopalwar Pic 2.jpg.jpeg'
+import award1Img from '../assets/images/award-1.png'
+import award2Img from '../assets/images/award-2.png'
+import award3Img from '../assets/images/award-3.png'
 
 const Achievements = () => {
   const awards = [
@@ -80,6 +85,52 @@ const Achievements = () => {
     { value: '7', label: 'Post-Retirement Extensions', note: '2018-2023' },
   ]
 
+  const milestonesGallery = [
+    {
+      image: mopalwarPic2,
+      title: 'The CMD Era: Leading Hazoor Multi Projects',
+      category: '2026 Leadership',
+      subtext: 'Shifting from 40 years of public service to driving corporate infrastructure growth from Nariman Point, Mumbai.',
+      size: 'large',
+    },
+    {
+      image: award3Img,
+      title: 'Excellence in Governance Award',
+      category: 'Governance',
+      subtext: 'Recognized for transformative administrative leadership and pioneering governance reforms across Maharashtra\'s infrastructure and public service sectors.',
+      size: 'medium',
+    },
+    {
+      image: award1Img,
+      title: 'Sustainability & Visionary Leadership Honor',
+      category: 'Sustainability',
+      subtext: 'Presented by the Governor of Maharashtra at the Mumbai Sustainability Summit for excellence in greenfield development.',
+      size: 'small',
+    },
+    {
+      image: award2Img,
+      title: 'Architect of Modern Infrastructure',
+      category: 'Infrastructure',
+      subtext: 'Recognition for the record execution of the 701-km Samruddhi Mahamarg—connecting 24 districts.',
+      size: 'small',
+    },
+  ]
+
+  const [hoveredId, setHoveredId] = useState(null)
+
+  const getGridClass = (size) => {
+    switch (size) {
+      case 'large':
+        return 'sm:col-span-2 sm:row-span-1 lg:col-span-2 lg:row-span-2'
+      case 'medium':
+        return 'sm:col-span-1 sm:row-span-2 lg:col-span-1 lg:row-span-2'
+      case 'wide':
+        return 'sm:col-span-1 sm:row-span-1 lg:col-span-2 lg:row-span-1'
+      default:
+        return 'sm:col-span-1 sm:row-span-1 lg:col-span-1 lg:row-span-1'
+    }
+  }
+
   return (
     <div className="pt-16 md:pt-20">
       {/* Hero */}
@@ -136,6 +187,84 @@ const Achievements = () => {
               * Statistics include various forms of recognition from government departments, industry organizations, and media features. Some citations may not be part of official public records.
             </p>
           </motion.div>
+        </Container>
+      </section>
+
+      {/* Milestones & Recognition — Bento Image Gallery */}
+      <section className="py-14 md:py-18 lg:py-20 bg-cream-50">
+        <Container>
+          <SectionHeading
+            title="Milestones & Recognition"
+            subtitle="A visual journey through landmark achievements, honors, and defining moments."
+            centered
+          />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4 auto-rows-[240px] sm:auto-rows-[260px] lg:auto-rows-[280px]">
+            {milestonesGallery.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.5, delay: index * 0.06, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className={`relative group cursor-pointer overflow-hidden rounded-2xl ${getGridClass(item.size)}`}
+                onMouseEnter={() => setHoveredId(index)}
+                onMouseLeave={() => setHoveredId(null)}
+              >
+                {/* Background Image */}
+                <div className="absolute inset-0 bg-cream-200">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  {/* Gradient overlay for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/30 to-transparent" />
+                </div>
+
+                {/* Content Overlay */}
+                <div className="absolute inset-0 p-4 sm:p-5 flex flex-col justify-between text-white">
+                  {/* Top: Category */}
+                  <div className="flex justify-between items-start">
+                    <span className="inline-block px-2.5 py-0.5 bg-gold-500/15 backdrop-blur-sm border border-gold-500/25 rounded-full text-[10px] font-medium">
+                      {item.category}
+                    </span>
+                  </div>
+
+                  {/* Bottom: Title & Description */}
+                  <div>
+                    <h3 className="text-base sm:text-lg lg:text-xl font-semibold mb-1.5 leading-snug" style={{ fontFamily: "'Playfair Display', serif" }}>
+                      {item.title}
+                    </h3>
+
+                    {/* Description — revealed on hover */}
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{
+                        height: hoveredId === index ? 'auto' : 0,
+                        opacity: hoveredId === index ? 1 : 0,
+                      }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <p className="text-white/75 text-xs sm:text-sm leading-relaxed">
+                        {item.subtext}
+                      </p>
+                    </motion.div>
+                  </div>
+                </div>
+
+                {/* Hover Border Effect */}
+                <motion.div
+                  className="absolute inset-0 rounded-2xl border-2 border-gold-500/50 pointer-events-none"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: hoveredId === index ? 1 : 0 }}
+                  transition={{ duration: 0.2 }}
+                />
+              </motion.div>
+            ))}
+          </div>
         </Container>
       </section>
 
